@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://192.168.32.92/logist2</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>/>
+        <property name="connection.username">root</property>
+        <property name="connection.password">Slayer123</property>
+        <property name="connection.pool_size">1</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="show_sql">true</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <mapping class="classes.Car"></mapping>
+        <property name="hbm2ddl.auto">update</property>
+    </session-factory>
+
+    <!--<mapping resource="hibernatecfg/driver.hbm.xml"/>-->
+    <!--<mapping resource="logic/Driver.hbm.xml"/>-->
+    <!--<mapping resource="logic/Route.hbm.xml"/>-->
+    <!-- DB schema will be updated if needed -->
+</hibernate-configuration>
