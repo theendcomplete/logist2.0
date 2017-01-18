@@ -1,0 +1,12 @@
+<hibernate-mapping>
+    <class name="classes.TransportCompany" table="transport_companies">
+        <id column="id" name="id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+        <property column="name" name="name" type="java.lang.String"/>
+        <property column="phone" name="phone" type="java.lang.String"/>
+        <property column="address" name="address" type="java.lang.String"/>
+        <property column="comment" name="comment" type="java.lang.String"/>
+
+    </class>
+</hibernate-mapping>

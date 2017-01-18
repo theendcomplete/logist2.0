@@ -1,0 +1,45 @@
+<hibernate-mapping>
+    <class name="classes.Order" table="orders">
+        <id column="id" name="id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+        <property column="address" name="address" type="java.lang.String"/>
+        <property column="target" name="target" type="java.lang.Integer"/>
+        <property column="startDate" name="startDate" type="java.util.Date"/>
+        <property column="endDate" name="endDate" type="java.util.Date"/>
+        <property column="image" name="image" type="binary"/>
+
+
+        <set name="contractor" table="contractor" lazy="false">
+            <key column="id"/>
+            <many-to-one column="id" class="classes.Contractor"/>
+        </set>
+
+        <set name="user" table="users" lazy="false">
+            <key column="id"/>
+            <many-to-many column="id" class="classes.User"/>
+        </set>
+
+        <set name="driver" table="drivers" lazy="false">
+            <key column="id"/>
+            <many-to-many column="id" class="classes.Driver"/>
+        </set>
+
+        <set name="transportCompany" table="transport_companies" lazy="false">
+            <key column="id"/>
+            <many-to-many column="id" class="classes.TransportCompany"/>
+        </set>
+
+        <set name="contact" table="contacts" lazy="false">
+            <key column="id"/>
+            <many-to-many column="id" class="classes.Contact"/>
+        </set>
+
+        <set name="cargo" table="cargos" lazy="false">
+            <key column="id"/>
+            <many-to-many column="id" class="classes.Cargo"/>
+        </set>
+
+
+    </class>
+</hibernate-mapping>

@@ -1,16 +1,14 @@
 package classes;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "TCs")
 public class TransportCompany {
     private Long id;
     private String address;
     private String comment;
+    private String name;
+    private String phone;
     private Set TransportCompanies = new HashSet();
 
     public TransportCompany() {
@@ -22,6 +20,22 @@ public class TransportCompany {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {

@@ -1,15 +1,12 @@
 package classes;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "cargo")
 public class Cargo {
     private Long id;
     private int count;
+    private String name;
     private Unit unit;
     private Set Cargos = new HashSet();
 
@@ -46,5 +43,13 @@ public class Cargo {
 
     public void setCargos(Set cargos) {
         Cargos = cargos;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

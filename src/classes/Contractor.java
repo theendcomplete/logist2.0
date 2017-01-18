@@ -1,12 +1,8 @@
 package classes;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "contractors")
 public class Contractor {
     private Long id;
     private String name;

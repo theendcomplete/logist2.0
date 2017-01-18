@@ -1,12 +1,8 @@
 package classes;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "cars")
 public class Car {
     private Long id;
     private String number;

@@ -1,23 +1,27 @@
 package classes;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "users")
 public class User {
     private Long id;
     private String name;
     private String login;
+    private String phone;
     private String password;
     private String pin;
     private String type;
-
     private Set Users = new HashSet();
 
     public User() {
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Long getId() {

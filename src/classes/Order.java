@@ -1,25 +1,66 @@
 package classes;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "orders")
 public class Order {
     private Long id;
     private String address;
-    private Contractor contractor;
-    private User user;
     private String target;
     private Date startDate;
     private Date endDate;
+    private Contractor contractor;
+    private User user;
+    private Driver driver;
+    private TransportCompany transportCompany;
+    private byte[] image;
+    private Contact contact;
+    private Cargo cargo;
     private Set Orders = new HashSet();
 
     public Order() {
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
+    public TransportCompany getTransportCompany() {
+        return transportCompany;
+    }
+
+    public void setTransportCompany(TransportCompany transportCompany) {
+        this.transportCompany = transportCompany;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
 
     public Long getId() {
