@@ -1,5 +1,5 @@
 <hibernate-mapping>
-    <class name="classes.Contact" table="contacts">
+    <class name="classes.Contractor" table="contractors">
         <id column="id" name="id" type="java.lang.Long">
             <generator class="increment"/>
         </id>

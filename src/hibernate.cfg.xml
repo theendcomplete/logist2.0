@@ -6,16 +6,39 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://192.168.32.92:3306/logist2</property>
-        <property name="hibernate.connection.password">Slayer123</property>
-        <property name="hibernate.connection.username">root</property>
+
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.password">Slayer123</property>
+        <property name="hibernate.connection.username">root</property>
 
-        <mapping resource="hibernatecfg/car.hbm.xml"></mapping>
-        <mapping resource="hibernatecfg/driver.hbm.xml"></mapping>
-        <mapping resource="hibernatecfg/cargo.hbm.xml"></mapping>
-        <mapping resource="hibernatecfg/unit.hbm.xml"></mapping>
-        <mapping resource="hibernatecfg/contact.hbm.xml"></mapping>
+
+        <mapping class="classes.Driver"/>
+        <mapping class="classes.Car"/>
+        <mapping class="classes.User"/>
+        <mapping class="classes.Unit"/>
+        <mapping class="classes.Contact"/>
+        <mapping class="classes.Contractor"/>
+        <mapping class="classes.TransportCompany"/>
+        <mapping class="classes.Cargo"/>
+        <mapping class="classes.Order"/>
+        <!--<mapping resource="hibernatecfg/driver.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/cargo.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/unit.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/contact.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/contractor.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/transportCompany.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/user.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/order.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/car.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/driver.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/cargo.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/unit.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/contact.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/contractor.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/transportCompany.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/user.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/order.hbm.xml"/>-->
     </session-factory>
 </hibernate-configuration>
