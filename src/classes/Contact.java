@@ -5,20 +5,21 @@ import java.util.Set;
 
 
 public class Contact {
-    private Long id;
+    private Long contact_ID;
     private String name;
     private String phone;
     private Set Contacts = new HashSet();
 
     public Contact() {
+
     }
 
-    public Long getId() {
-        return id;
+    public Long getContact_ID() {
+        return contact_ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setContact_ID(Long contact_ID) {
+        this.contact_ID = contact_ID;
     }
 
     public String getName() {
@@ -44,4 +45,5 @@ public class Contact {
     public void setContacts(Set contacts) {
         Contacts = contacts;
     }
+
 }

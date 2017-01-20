@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class User {
-    private Long id;
+    private Long user_ID;
     private String name;
     private String login;
     private String phone;
@@ -16,20 +16,12 @@ public class User {
     public User() {
     }
 
-    public String getPhone() {
-        return phone;
+    public Long getUser_ID() {
+        return user_ID;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser_ID(Long user_ID) {
+        this.user_ID = user_ID;
     }
 
     public String getName() {
@@ -46,6 +38,14 @@ public class User {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {

@@ -14,8 +14,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" value="3c1e9f25-3714-4711-8bee-2e2fd330229b" />
-          <unit-entry name="web:WEB-INF:hibernate.cfg.xml" value="8992fd58-df16-4444-9d36-3f6822104311" />
+          <unit-entry name="hibernate.cfg.xml" value="55e42191-0ce7-493a-a116-40e5f4b4c30b" />
         </datasource-map>
         <naming-strategy-map>
           <unit-entry name="hibernate.cfg.xml" value="" />
@@ -31,7 +30,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Hibernate 5.2.3-5.2.3" level="project" />
+    <orderEntry type="library" exported="" name="Hibernate 5.2.3-5.2.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.73" level="application_server_libraries" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.27" level="project" />
   </component>
 </module>

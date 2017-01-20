@@ -1,28 +1,25 @@
 package classes;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
 
-@Entity
-@Table(name = "drivers")
 public class Driver {
-    private Long id;
+    private Long driver_ID;
     private String name;
     private Car car;
     private Set Drivers = new HashSet();
 
     public Driver() {
+
     }
 
-    public Long getId() {
-        return id;
+    public Long getDriver_ID() {
+        return driver_ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setDriver_ID(Long driver_ID) {
+        this.driver_ID = driver_ID;
     }
 
     public String getName() {

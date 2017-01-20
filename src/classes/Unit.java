@@ -4,19 +4,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Unit {
-    private Long id;
+    private Long unit_ID;
     private String name;
     private Set Units = new HashSet();
 
     public Unit() {
+
     }
 
-    public Long getId() {
-        return id;
+    public Long getUnit_ID() {
+        return unit_ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUnit_ID(Long unit_ID) {
+        this.unit_ID = unit_ID;
     }
 
     public String getName() {

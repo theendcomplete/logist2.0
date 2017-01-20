@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Car {
-    private Long id;
+    private Long car_ID;
     private String number;
     private String model;
     private Set Cars = new HashSet();
@@ -12,12 +12,12 @@ public class Car {
     public Car() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getCar_ID() {
+        return car_ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCar_ID(Long car_ID) {
+        this.car_ID = car_ID;
     }
 
     public String getNumber() {

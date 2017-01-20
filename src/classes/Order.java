@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Order {
-    private Long id;
+    private Long order_ID;
     private String address;
     private String target;
     private Date startDate;
@@ -23,52 +23,12 @@ public class Order {
     public Order() {
     }
 
-    public byte[] getImage() {
-        return image;
+    public Long getOrder_ID() {
+        return order_ID;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
-
-    public Contact getContact() {
-        return contact;
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    public Cargo getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
-    }
-
-    public TransportCompany getTransportCompany() {
-        return transportCompany;
-    }
-
-    public void setTransportCompany(TransportCompany transportCompany) {
-        this.transportCompany = transportCompany;
-    }
-
-    public Driver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setOrder_ID(Long order_ID) {
+        this.order_ID = order_ID;
     }
 
     public String getAddress() {
@@ -77,22 +37,6 @@ public class Order {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public Contractor getContractor() {
-        return contractor;
-    }
-
-    public void setContractor(Contractor contractor) {
-        this.contractor = contractor;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getTarget() {
@@ -117,6 +61,62 @@ public class Order {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public Contractor getContractor() {
+        return contractor;
+    }
+
+    public void setContractor(Contractor contractor) {
+        this.contractor = contractor;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public TransportCompany getTransportCompany() {
+        return transportCompany;
+    }
+
+    public void setTransportCompany(TransportCompany transportCompany) {
+        this.transportCompany = transportCompany;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 
     public Set getOrders() {

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Contractor {
-    private Long id;
+    private Long contractor_ID;
     private String name;
     private String address;
     private String phone;
@@ -13,12 +13,12 @@ public class Contractor {
     public Contractor() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getContractor_ID() {
+        return contractor_ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setContractor_ID(Long contractor_ID) {
+        this.contractor_ID = contractor_ID;
     }
 
     public String getName() {

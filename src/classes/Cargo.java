@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Cargo {
-    private Long id;
+    private Long cargo_ID;
     private int count;
     private String name;
     private Unit unit;
@@ -13,12 +13,12 @@ public class Cargo {
     public Cargo() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getCargo_ID() {
+        return cargo_ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCargo_ID(Long cargo_ID) {
+        this.cargo_ID = cargo_ID;
     }
 
     public int getCount() {
@@ -27,6 +27,14 @@ public class Cargo {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Unit getUnit() {
@@ -43,13 +51,5 @@ public class Cargo {
 
     public void setCargos(Set cargos) {
         Cargos = cargos;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
