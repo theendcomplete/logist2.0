@@ -1,17 +1,24 @@
 package classes;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class TransportCompany {
     private Long tc_ID;
     private String address;
     private String comment;
     private String name;
     private String phone;
-    private Set TransportCompanies = new HashSet();
+    private Order orders;
+
 
     public TransportCompany() {
+    }
+
+    public Order getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Order orders) {
+        this.orders = orders;
+
     }
 
     public Long getTc_ID() {
@@ -52,13 +59,5 @@ public class TransportCompany {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public Set getTransportCompanies() {
-        return TransportCompanies;
-    }
-
-    public void setTransportCompanies(Set transportCompanies) {
-        TransportCompanies = transportCompanies;
     }
 }

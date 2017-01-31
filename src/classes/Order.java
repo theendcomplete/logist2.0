@@ -1,9 +1,8 @@
 package classes;
 
 
+import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Order {
     private Long order_ID;
@@ -11,22 +10,29 @@ public class Order {
     private String target;
     private Date startDate;
     private Date endDate;
-    private Contractor contractor;
 
 
     private TransportCompany transportCompany;
 
 
     private byte[] image;
-    private Contact contact;
 
 
-    private Cargo cargo;
-    private Set Orders = new HashSet();
     private User user;
     private Driver driver;
+    private Cargo cargo;
+    private Contractor contractor;
+    private Collection<Contact> contact;
 
     public Order() {
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 
     public Long getOrder_ID() {
@@ -69,14 +75,6 @@ public class Order {
         this.endDate = endDate;
     }
 
-    public Contractor getContractor() {
-        return contractor;
-    }
-
-    public void setContractor(Contractor contractor) {
-        this.contractor = contractor;
-    }
-
     public TransportCompany getTransportCompany() {
         return transportCompany;
     }
@@ -93,30 +91,6 @@ public class Order {
         this.image = image;
     }
 
-    public Contact getContact() {
-        return contact;
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    public Cargo getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
-    }
-
-    public Set getOrders() {
-        return Orders;
-    }
-
-    public void setOrders(Set orders) {
-        Orders = orders;
-    }
-
     public User getUser() {
         return user;
     }
@@ -131,5 +105,21 @@ public class Order {
 
     public void setDriver(Driver driver) {
         this.driver = driver;
+    }
+
+    public Contractor getContractor() {
+        return contractor;
+    }
+
+    public void setContractor(Contractor contractor) {
+        this.contractor = contractor;
+    }
+
+    public Collection<Contact> getContact() {
+        return contact;
+    }
+
+    public void setContact(Collection<Contact> contact) {
+        this.contact = contact;
     }
 }

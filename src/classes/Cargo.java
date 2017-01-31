@@ -1,14 +1,11 @@
 package classes;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Cargo {
     private Long cargo_ID;
     private int count;
     private String name;
-    private Set Cargos = new HashSet();
     private Collection<Unit> unit;
 
     public Cargo() {
@@ -38,13 +35,7 @@ public class Cargo {
         this.name = name;
     }
 
-    public Set getCargos() {
-        return Cargos;
-    }
-
-    public void setCargos(Set cargos) {
-        Cargos = cargos;
-    }
+//
 
     public Collection<Unit> getUnit() {
         return unit;

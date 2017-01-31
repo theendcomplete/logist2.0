@@ -13,23 +13,17 @@
         <property column="image" name="image" type="binary"/>
         <many-to-one name="user" class="classes.User"/>
         <many-to-one name="driver" cascade="all" lazy="false" class="classes.Driver"/>
+        <many-to-one name="contractor" cascade="all" class="classes.Contractor"/>
+        <one-to-one name="cargo" cascade="all" lazy="false" class="classes.Cargo"/>
+        <one-to-one name="transportCompany" cascade="all" class="classes.TransportCompany"/>
 
 
-        <set name="Cargo" cascade="all-delete-orphan">
+        <set name="contact" cascade="all" lazy="false" inverse="true">
             <key/>
-            <many-to-many class="classes.Cargo"/>
         </set>
-        <set name="contractor" cascade="all" lazy="extra" inverse="true">
+        <set name="contact" cascade="all">
             <key/>
-            <one-to-many class="classes.Contractor"/>
-        </set>
-        <set name="transportCompany" cascade="all" lazy="extra" inverse="true">
-            <key/>
-            <one-to-many class="classes.TransportCompany"/>
-        </set>
-        <set name="contact" cascade="all" lazy="extra" inverse="true">
-            <key/>
-            <one-to-many class="classes.Contact"/>
+            <many-to-many class="classes.Contact"/>
         </set>
 
 

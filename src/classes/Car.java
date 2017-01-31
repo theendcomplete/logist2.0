@@ -1,13 +1,9 @@
 package classes;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Car {
     private Long car_ID;
     private String number;
     private String model;
-    private Set Cars = new HashSet();
 
     public Car() {
     }
@@ -34,13 +30,5 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public Set getCars() {
-        return Cars;
-    }
-
-    public void setCars(Set cars) {
-        Cars = cars;
     }
 }

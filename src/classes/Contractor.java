@@ -1,14 +1,14 @@
 package classes;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
 public class Contractor {
     private Long contractor_ID;
     private String name;
     private String address;
     private String phone;
-    private Set Contractors = new HashSet();
+    //    private Set Contractors = new HashSet();
+    private Collection<Order> orders;
 
     public Contractor() {
     }
@@ -45,11 +45,11 @@ public class Contractor {
         this.phone = phone;
     }
 
-    public Set getContractors() {
-        return Contractors;
+    public Collection<Order> getOrders() {
+        return orders;
     }
 
-    public void setContractors(Set contractors) {
-        Contractors = contractors;
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
     }
 }

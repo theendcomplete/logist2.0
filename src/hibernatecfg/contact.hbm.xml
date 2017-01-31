@@ -8,5 +8,9 @@
         </id>
         <property column="name" name="name" type="java.lang.String"/>
         <property column="phone" name="phone" type="java.lang.String"/>
+        <set name="order" cascade="all" inverse="true">
+            <key/>
+            <many-to-many class="classes.Order"/>
+        </set>
     </class>
 </hibernate-mapping>

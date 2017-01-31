@@ -1,17 +1,24 @@
 package classes;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
 
 public class Contact {
     private Long contact_ID;
     private String name;
     private String phone;
-    private Set Contacts = new HashSet();
+    private Collection<Order> order;
 
     public Contact() {
 
+    }
+
+    public Collection<Order> getOrder() {
+        return order;
+    }
+
+    public void setOrder(Collection<Order> order) {
+        this.order = order;
     }
 
     public Long getContact_ID() {
@@ -37,13 +44,4 @@ public class Contact {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    public Set getContacts() {
-        return Contacts;
-    }
-
-    public void setContacts(Set contacts) {
-        Contacts = contacts;
-    }
-
 }
