@@ -18,9 +18,6 @@
         <one-to-one name="transportCompany" cascade="all" class="classes.TransportCompany"/>
 
 
-        <set name="contact" cascade="all" lazy="false" inverse="true">
-            <key/>
-        </set>
         <set name="contact" cascade="all">
             <key/>
             <many-to-many class="classes.Contact"/>
