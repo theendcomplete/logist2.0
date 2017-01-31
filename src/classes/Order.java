@@ -12,13 +12,19 @@ public class Order {
     private Date startDate;
     private Date endDate;
     private Contractor contractor;
-    private User user;
-    private Driver driver;
+
+
     private TransportCompany transportCompany;
+
+
     private byte[] image;
     private Contact contact;
+
+
     private Cargo cargo;
     private Set Orders = new HashSet();
+    private User user;
+    private Driver driver;
 
     public Order() {
     }
@@ -71,22 +77,6 @@ public class Order {
         this.contractor = contractor;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Driver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
     public TransportCompany getTransportCompany() {
         return transportCompany;
     }
@@ -125,5 +115,21 @@ public class Order {
 
     public void setOrders(Set orders) {
         Orders = orders;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
 }

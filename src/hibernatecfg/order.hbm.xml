@@ -11,37 +11,25 @@
         <property column="startDate" name="startDate" type="java.util.Date"/>
         <property column="endDate" name="endDate" type="java.util.Date"/>
         <property column="image" name="image" type="binary"/>
+        <many-to-one name="user" class="classes.User"/>
+        <many-to-one name="driver" cascade="all" lazy="false" class="classes.Driver"/>
 
 
-        <set name="user" table="users" lazy="false">
-            <key column="user_ID"/>
-            <many-to-many column="user_ID" class="classes.User"/>
+        <set name="Cargo" cascade="all-delete-orphan">
+            <key/>
+            <many-to-many class="classes.Cargo"/>
         </set>
-
-        <set name="driver" table="drivers" lazy="false">
-            <key column="driver_ID"/>
-            <many-to-many column="driver_ID" class="classes.Driver"/>
+        <set name="contractor" cascade="all" lazy="extra" inverse="true">
+            <key/>
+            <one-to-many class="classes.Contractor"/>
         </set>
-
-        <set name="transportCompany" table="transport_companies" lazy="false">
-            <key column="tc_ID"/>
-            <many-to-many column="tc_ID" class="classes.TransportCompany"/>
-            <!--<many-to-many class="classes.TransportCompany"/>-->
+        <set name="transportCompany" cascade="all" lazy="extra" inverse="true">
+            <key/>
+            <one-to-many class="classes.TransportCompany"/>
         </set>
-
-        <set name="contact" table="contacts" lazy="false">
-            <key column="contact_ID"/>
-            <many-to-many column="contact_ID" class="classes.Contact"/>
-        </set>
-
-        <set name="cargo" table="cargos" lazy="false">
-            <key column="cargo_ID"/>
-            <many-to-many column="cargo_ID" class="classes.Cargo"/>
-        </set>
-
-        <set name="contractor" table="contractor" lazy="false">
-            <key column="contractor_ID"/>
-            <many-to-many column="contractor_ID" class="classes.Contractor"/>
+        <set name="contact" cascade="all" lazy="extra" inverse="true">
+            <key/>
+            <one-to-many class="classes.Contact"/>
         </set>
 
 

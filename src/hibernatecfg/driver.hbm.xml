@@ -6,13 +6,25 @@
         <id column="driver_ID" name="driver_ID" type="java.lang.Long">
             <generator class="increment"/>
         </id>
-        <property column="name" name="name" type="java.lang.String"/>
-
-        <set name="car" table="cars" lazy="false">
-            <key column="id"/>
-            <many-to-many column="id" class="classes.Car"/>
+        <property name="name" column="name" type="java.lang.String"/>
+        <set name="car" cascade="all" lazy="false" inverse="true">
+            <key/>
+            <one-to-many class="classes.Car"/>
+        </set>
+        <set name="orders" cascade="all" lazy="false" inverse="true">
+            <key/>
+            <one-to-many class="classes.Order"/>
         </set>
 
+        <!--<set name="car" table="cars" lazy="false">-->
+        <!--<key column="car_ID"/>-->
+        <!--<many-to-many column="car_ID" class="classes.Car"/>-->
+        <!--</set>-->
 
+
+        <!--<set name="products" inverse="true" cascade="all">-->
+        <!--<key column="CATEGORY_ID" not-null="true" />-->
+        <!--<one-to-many class="Product"/>-->
+        <!--</set>-->
     </class>
 </hibernate-mapping>

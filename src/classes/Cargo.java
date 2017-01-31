@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,8 +8,8 @@ public class Cargo {
     private Long cargo_ID;
     private int count;
     private String name;
-    private Unit unit;
     private Set Cargos = new HashSet();
+    private Collection<Unit> unit;
 
     public Cargo() {
     }
@@ -37,19 +38,19 @@ public class Cargo {
         this.name = name;
     }
 
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
-
     public Set getCargos() {
         return Cargos;
     }
 
     public void setCargos(Set cargos) {
         Cargos = cargos;
+    }
+
+    public Collection<Unit> getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Collection<Unit> unit) {
+        this.unit = unit;
     }
 }

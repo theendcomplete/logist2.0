@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,8 +8,9 @@ import java.util.Set;
 public class Driver {
     private Long driver_ID;
     private String name;
-    private Car car;
     private Set Drivers = new HashSet();
+    private Collection<Car> car;
+    private Collection<Order> orders;
 
     public Driver() {
 
@@ -30,19 +32,27 @@ public class Driver {
         this.name = name;
     }
 
-    public Car getCar() {
-        return car;
-    }
-
-    public void setCar(Car car) {
-        this.car = car;
-    }
-
     public Set getDrivers() {
         return Drivers;
     }
 
     public void setDrivers(Set drivers) {
         Drivers = drivers;
+    }
+
+    public Collection<Car> getCar() {
+        return car;
+    }
+
+    public void setCar(Collection<Car> car) {
+        this.car = car;
+    }
+
+    public Collection<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
     }
 }

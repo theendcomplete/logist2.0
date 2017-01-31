@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ public class User {
     private String pin;
     private String type;
     private Set Users = new HashSet();
+    private Collection<Order> orders;
 
     public User() {
     }
@@ -78,5 +80,13 @@ public class User {
 
     public void setUsers(Set users) {
         Users = users;
+    }
+
+    public Collection<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
     }
 }

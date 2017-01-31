@@ -3,15 +3,28 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="classes.Cargo" table="cargos">
-        <id column="cargo_ID" name="cargo_ID" type="java.lang.Long">
+        <id name="cargo_ID" column="cargo_ID" type="java.lang.Long">
             <generator class="increment"/>
         </id>
-        <property column="name" name="name" type="java.lang.String"/>
-        <property column="count" name="count" type="java.lang.Integer"/>
+        <property name="name" column="name" type="java.lang.String"/>
+        <property name="count" column="count" type="java.lang.Integer"/>
 
-        <set name="unit" table="units" lazy="false">
-            <key column="unit_ID"/>
-            <many-to-many column="unit_ID" class="classes.Unit"/>
+        <!--<set name="unit" table="units"-->
+        <!--inverse="false" lazy="false" fetch="select" cascade="all">-->
+        <!--<key>-->
+        <!--<column name="unit_ID" not-null="true"/>-->
+        <!--</key>-->
+        <!--<many-to-one entity-name="classes.Unit">-->
+        <!--<column name="cargo_ID" not-null="true"/>-->
+        <!--</many-to-one>-->
+        <!--</set>-->
+
+
+        <set name="unit" cascade="all-delete-orphan,all" inverse="true">
+            <key/>
+            <one-to-many class="classes.Unit"/>
         </set>
+
+
     </class>
 </hibernate-mapping>

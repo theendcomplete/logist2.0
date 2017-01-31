@@ -3,10 +3,11 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="classes.Car" table="cars">
-        <id column="car_ID" name="car_ID" type="java.lang.Long">
+        <id name="car_ID" column="car_ID" type="java.lang.Long">
             <generator class="increment"/>
         </id>
-        <property column="number" name="number" type="java.lang.String"/>
-        <property column="model" name="model" type="java.lang.String"/>
+        <property name="number" column="number" type="java.lang.String"/>
+        <property name="model" column="model" type="java.lang.String"/>
     </class>
+
 </hibernate-mapping>
