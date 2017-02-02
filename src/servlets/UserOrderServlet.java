@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
 /**
  * Created by theendcomplete on 19.01.2017.
@@ -23,10 +22,12 @@ public class UserOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Driver driver = new Driver();
         DriverInterfaceImplementation driverInterfaceImplementation = new DriverInterfaceImplementation();
-        try {
-            driverInterfaceImplementation.addDriver(driver);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+
+//        try {
+//            driverInterfaceImplementation.addDriver(driver);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 }
