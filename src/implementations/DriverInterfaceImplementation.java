@@ -15,15 +15,7 @@ public class DriverInterfaceImplementation implements DriverInterface {
 
     @Override
     public void addDriver(Driver driver) throws SQLException {
-//        driver = new Driver();
-//        Cargo cargo = new Cargo();
-//        Car car = new Car();
-//        Contact contact = new Contact();
-//        Contractor contractor = new Contractor();
-//        TransportCompany transportCompany = new TransportCompany();
-//        Unit unit = new Unit();
-//        User user = new User();
-//
+
 //        Order order = new Order();
         Session session = null;
         try {
