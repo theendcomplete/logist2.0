@@ -7,7 +7,7 @@
             <generator class="increment"/>
         </id>
         <property name="name" column="name" type="java.lang.String"/>
-        <one-to-one name="Car" lazy="false" class="classes.Car"/>
+        <one-to-one name="Car" class="classes.Car"/>
 
     </class>
 </hibernate-mapping>

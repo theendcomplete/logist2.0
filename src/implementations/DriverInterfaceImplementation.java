@@ -21,16 +21,7 @@ public class DriverInterfaceImplementation implements DriverInterface {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-//            session.save(car);
             session.save(driver);
-//            session.save(unit);
-//            session.save(cargo);
-//            session.save(contact);
-//            session.save(contractor);
-//            session.save(transportCompany);
-//            session.save(unit);
-//            session.save(user);
-//            session.save(order);
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println("ошибка при вставке " + e);
@@ -48,7 +39,22 @@ public class DriverInterfaceImplementation implements DriverInterface {
 
     @Override
     public Driver getDriverById(Long id) throws SQLException {
-        return null;
+        Session session = null;
+        Driver driver = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            driver = session.load(Driver.class, id);
+            driver.getCar();
+
+
+        } catch (Exception e) {
+            System.out.println("ошибка при поиске " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return driver;
     }
 
     @Override
