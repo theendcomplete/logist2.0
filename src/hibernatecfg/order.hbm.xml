@@ -12,10 +12,11 @@
         <property column="endDate" name="endDate" type="java.util.Date"/>
         <property column="image" name="image" type="binary"/>
         <many-to-one name="user" class="classes.User"/>
-        <many-to-one name="driver" cascade="all" lazy="false" class="classes.Driver"/>
         <many-to-one name="contractor" cascade="all" class="classes.Contractor"/>
+        <many-to-one name="Driver" lazy="false" class="classes.Driver"/>
         <one-to-one name="cargo" cascade="all" lazy="false" class="classes.Cargo"/>
         <one-to-one name="transportCompany" cascade="all" class="classes.TransportCompany"/>
+        <one-to-one name="Car" class="classes.Car"/>
 
 
         <set name="contact" cascade="all">

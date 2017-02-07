@@ -19,10 +19,11 @@ public class Order {
 
 
     private User user;
-    private Driver driver;
     private Cargo cargo;
     private Contractor contractor;
     private Collection<Contact> contact;
+    private classes.Driver Driver;
+    private classes.Car Car;
 
     public Order() {
     }
@@ -99,14 +100,6 @@ public class Order {
         this.user = user;
     }
 
-    public Driver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
     public Contractor getContractor() {
         return contractor;
     }
@@ -121,5 +114,21 @@ public class Order {
 
     public void setContact(Collection<Contact> contact) {
         this.contact = contact;
+    }
+
+    public classes.Driver getDriver() {
+        return Driver;
+    }
+
+    public void setDriver(classes.Driver driver) {
+        Driver = driver;
+    }
+
+    public classes.Car getCar() {
+        return Car;
+    }
+
+    public void setCar(classes.Car car) {
+        Car = car;
     }
 }

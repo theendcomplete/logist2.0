@@ -15,6 +15,16 @@
         <url-pattern></url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddDrivers</servlet-name>
+        <servlet-class>servlets.CreateDriversServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddDrivers</servlet-name>
+        <url-pattern>/addDrivers</url-pattern>
+    </servlet-mapping>
+
+
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
