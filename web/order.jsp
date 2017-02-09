@@ -41,8 +41,11 @@
 <body bgcolor="#FFFFFF" text="#000000">
 
 
-<div class="container-narrow">
+<%--<div class="container-narrow">--%>
+<div class="container theme-showcase" role="main">
     <H1 class="text-center" style="margin: 10px 10px 10px 10px;">Создание заявки на транспортировку</H1>
+
+
     <div class="row">
         <div class="col-md-4">
             <div class="text" style="margin: 20px 20px 20px 20px;">
