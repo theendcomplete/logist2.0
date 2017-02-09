@@ -1,9 +1,8 @@
 package implementations;
 
-import classes.Car;
-import classes.Order;
+import classes.TransportCompany;
 import factories.HibernateUtil;
-import interfaces.OrderInterface;
+import interfaces.TransportCompanyInterface;
 import org.hibernate.Session;
 
 import java.sql.SQLException;
@@ -14,39 +13,39 @@ import java.util.List;
 /**
  * Created by theendcomplete on 19.01.2017.
  */
-public class OrderInterfaceImplementation implements OrderInterface {
+public class TcInterfaceImplementation implements TransportCompanyInterface {
+
 
     @Override
-    public void addOrder(Order order) throws SQLException {
+    public void addTc(TransportCompany transportCompany) throws SQLException {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            session.save(order);
+            session.save(transportCompany);
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println("ошибка при вставке " + e);
         } finally {
             if (session != null && session.isOpen()) {
-
                 session.close();
             }
         }
+    }
+
+    @Override
+    public void updateTc(Long id, TransportCompany transportCompany) throws SQLException {
+
 
     }
 
     @Override
-    public void updateOrder(Long id, Order order) throws SQLException {
-
-    }
-
-    @Override
-    public Order getOrderById(Long id) throws SQLException {
+    public TransportCompany getTcById(Long id) throws SQLException {
         Session session = null;
-        Order order = null;
+        TransportCompany transportCompany = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            order = session.load(Order.class, id);
+            transportCompany = session.load(TransportCompany.class, id);
         } catch (Exception e) {
             System.out.println("ошибка при вставке " + e);
         } finally {
@@ -54,16 +53,17 @@ public class OrderInterfaceImplementation implements OrderInterface {
                 session.close();
             }
         }
-        return order;
+        return transportCompany;
     }
 
     @Override
-    public Collection getAllOrders() throws SQLException {
+    public Collection getAllTcs() throws SQLException {
+
         Session session = null;
-        List orders = new ArrayList<Order>();
+        List tcs = new ArrayList<TransportCompany>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            orders = session.createCriteria(Car.class).list();
+            tcs = session.createCriteria(TransportCompany.class).list();
         } catch (Exception e) {
             System.out.println("ошибка при вставке " + e);
         } finally {
@@ -71,11 +71,27 @@ public class OrderInterfaceImplementation implements OrderInterface {
                 session.close();
             }
         }
-        return orders;
+        return tcs;
+
     }
 
     @Override
-    public void deleteOrder(Order order) throws SQLException {
+    public void deleteTc(TransportCompany transportCompany) throws SQLException {
 
+
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.delete(transportCompany);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("ошибка при вставке " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
     }
+
 }

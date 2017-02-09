@@ -10,6 +10,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Hibernate 5.2.3-5.2.3" />
           <element id="library" level="project" name="mysql-connector-java-5.1.27" />
+          <element id="library" level="project" name="taglibs-standard-impl-1.2.5" />
         </element>
       </element>
     </root>

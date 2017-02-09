@@ -1,9 +1,9 @@
 package implementations;
 
 import classes.Car;
-import classes.Order;
+import classes.Unit;
 import factories.HibernateUtil;
-import interfaces.OrderInterface;
+import interfaces.UnitInterface;
 import org.hibernate.Session;
 
 import java.sql.SQLException;
@@ -14,39 +14,39 @@ import java.util.List;
 /**
  * Created by theendcomplete on 19.01.2017.
  */
-public class OrderInterfaceImplementation implements OrderInterface {
+public class UnitInterfaceImplementation implements UnitInterface {
+
 
     @Override
-    public void addOrder(Order order) throws SQLException {
+    public void addUnit(Unit unit) throws SQLException {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            session.save(order);
+            session.save(unit);
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println("ошибка при вставке " + e);
         } finally {
             if (session != null && session.isOpen()) {
-
                 session.close();
             }
         }
+    }
+
+    @Override
+    public void updateUnit(Long id, Unit unit) throws SQLException {
+
 
     }
 
     @Override
-    public void updateOrder(Long id, Order order) throws SQLException {
-
-    }
-
-    @Override
-    public Order getOrderById(Long id) throws SQLException {
+    public Unit getUnitById(Long id) throws SQLException {
         Session session = null;
-        Order order = null;
+        Unit unit = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            order = session.load(Order.class, id);
+            unit = session.load(Unit.class, id);
         } catch (Exception e) {
             System.out.println("ошибка при вставке " + e);
         } finally {
@@ -54,16 +54,17 @@ public class OrderInterfaceImplementation implements OrderInterface {
                 session.close();
             }
         }
-        return order;
+        return unit;
     }
 
     @Override
-    public Collection getAllOrders() throws SQLException {
+    public Collection getAllUnits() throws SQLException {
+
         Session session = null;
-        List orders = new ArrayList<Order>();
+        List units = new ArrayList<Unit>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            orders = session.createCriteria(Car.class).list();
+            units = session.createCriteria(Car.class).list();
         } catch (Exception e) {
             System.out.println("ошибка при вставке " + e);
         } finally {
@@ -71,11 +72,27 @@ public class OrderInterfaceImplementation implements OrderInterface {
                 session.close();
             }
         }
-        return orders;
+        return units;
+
     }
 
     @Override
-    public void deleteOrder(Order order) throws SQLException {
+    public void deleteUnit(Unit unit) throws SQLException {
 
+
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.delete(unit);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("ошибка при вставке " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
     }
+
 }

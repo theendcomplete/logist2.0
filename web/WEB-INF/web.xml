@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-
     <servlet>
         <servlet-name>Order</servlet-name>
         <servlet-class>servlets.UserOrderServlet</servlet-class>
@@ -24,6 +23,14 @@
         <url-pattern>/addDrivers</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddUnits</servlet-name>
+        <servlet-class>servlets.CreateUnitsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddUnits</servlet-name>
+        <url-pattern>/addUnits</url-pattern>
+    </servlet-mapping>
 
     <jsp-config>
         <jsp-property-group>
@@ -31,7 +38,6 @@
             <page-encoding>UTF-8</page-encoding>
         </jsp-property-group>
     </jsp-config>
-
 
     <filter>
         <filter-name>SetCharacterEncoding</filter-name>
@@ -47,6 +53,4 @@
         <filter-name>SetCharacterEncoding</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-
 </web-app>
