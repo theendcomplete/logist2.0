@@ -15,18 +15,19 @@
 
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 
     <title>Создание заявки на транспортировку</title>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" type="javascript"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="javascript"></script>
+
+    <script type="javascript">
         $(function () {
             $("#date_deadline").datepicker({
                 dateFormat: "dd.mm.yy"
@@ -40,7 +41,7 @@
 <body bgcolor="#FFFFFF" text="#000000">
 
 
-<div class="container">
+<div class="container-narrow">
     <H1 class="text-center" style="margin: 10px 10px 10px 10px;">Создание заявки на транспортировку</H1>
     <div class="row">
         <div class="col-md-4">
@@ -50,7 +51,13 @@
             </div>
         </div>
         <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">Анонимно</button>
+                <button type="button" class="btn btn-default">Логин</button>
+                <%--<button type="button" class="btn btn-default">Right</button>--%>
+            </div>
+        </div>
 
     </div>
     <div class="row">
@@ -64,11 +71,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="btn-group">
-                <button type="button" class="btn btn-default">Left</button>
-                <button type="button" class="btn btn-default">Middle</button>
-                <button type="button" class="btn btn-default">Right</button>
-            </div>
+
         </div>
         <div class="col-md-6">.col-md-6</div>
     </div>
