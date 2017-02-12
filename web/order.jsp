@@ -7,42 +7,42 @@
 <head>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <%--<!-- Optional theme -->--%>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"/>
 
+    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>--%>
+    <script src="/resources/js/moment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <%--<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.min.js"></script>--%>
-    <%--<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>--%>
-
-
-    <%--<script--%>
-    <%--src="https://code.jquery.com/jquery-3.1.1.js"--%>
-    <%--integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="--%>
-    <%--crossorigin="anonymous"></script>--%>
-
-    <%--//    <link rel="stylesheet" href=resources/js/jquery-ui-1.12.1/jquery-ui.css.css">--%>
-
-    <%--<script src="resources/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>--%>
-    <%--<script src="resources/js/jquery-ui-1.12.1/jquery-ui.js"></script>--%>
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
 
-    <script>
-        $(function () {
-            $("#date_deadline").datepicker({
-                dateFormat: "dd.mm.yy"
-            });
-        });
-    </script>
+    <%--Работает--%>
+    <!-- Latest compiled and minified CSS -->
+    <%--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"--%>
+    <%--integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--%>
 
+    <%--&lt;%&ndash;<!-- Optional theme -->&ndash;%&gt;--%>
+    <%--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"--%>
+    <%--integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">--%>
+
+
+    <%--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>--%>
+    <%--<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+
+    <%--<script src="resources/js/moment.js"></script>--%>
+    <%--<script src="resources/js/transition.js"></script>--%>
+    <%--<script src="resources/js/collapse.js"></script>--%>
+
+
+    <%--/Работает--%>
+    <%--<script src="resources/js/bootstrap-datetimepicker.js"></script>--%>
+    <%--<link rel="stylesheet" href="resources/js/bootstrap-datetimepicker.css">--%>
 
     <%--<script type="text/javascript"--%>
     <%--src="${pageContext.request.contextPath}/resources/js/bootstrap-datetimepicker.js"></script>--%>
@@ -75,13 +75,32 @@
                 <H1 class="text-center" style="margin: 10px 30px 10px 10px;">Создание заявки на транспортировку</H1>
             </legend>
 
-            <input type="text" placeholder="Выберите дату" name="date_deadline" id="date_deadline">
+            <div class="container">
+                <div class="row">
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' class="form-control"/>
+                                <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#datetimepicker1').datetimepicker();
+                        });
+                    </script>
+                </div>
+            </div>
+
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="name">Ваше имя</label>
                 <div class="col-md-5">
                     <input id="name" name="name" type="text" placeholder="Ваше имя" class="form-control input-md"
-                           required="">
+                           required="true">
                     <span class="help-block">Вас так зовут</span>
                 </div>
             </div>
@@ -114,22 +133,73 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="startDate">Поездка с</label>
                 <div class="col-md-4">
-                    <input id="startDate" name="startDate" type="text" placeholder="Дата начала"
-                           class="form-control input-md" required="true">
-                    <span class="help-block">Когда можно будет забрать?</span>
+
+
+                    <div class="container">
+                        <div class='col-md-3'>
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker6'>
+                                    <input type='text' class="form-control"/>
+                                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class='col-md-3'>
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker7'>
+                                    <input type='text' class="form-control"/>
+                                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#datetimepicker6').datetimepicker({
+                                useCurrent: false, //Important! See issue #1075
+                                sideBySide: true,
+                                locale: 'ru',
+                                format: 'DD.MM.YYYY, HH:mm'
+                            });
+                            $('#datetimepicker7').datetimepicker({
+                                useCurrent: false, //Important! See issue #1075
+                                sideBySide: true,
+                                locale: 'ru',
+                                format: 'DD.MM.YYYY, HH:mm'
+                            });
+                            $("#datetimepicker6").on("dp.change", function (e) {
+                                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                            });
+                            $("#datetimepicker7").on("dp.change", function (e) {
+                                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                            });
+                        });
+                    </script>
+
+
+                    <%----%>
+                    <%--<input id="startDate" name="startDate" type="text" placeholder="Дата начала"--%>
+                    <%--class="form-control input-md" required="true">--%>
+                    <%--<span class="help-block">Когда можно будет забрать?</span>--%>
                 </div>
             </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="endDate">Поездка по</label>
-                <div class="col-md-4">
-                    <input id="endDate" name="endDate" type="text" placeholder="Крайний срок"
-                           class="form-control input-md" required="true">
-                    <span class="help-block">Когда станет поздно забирать?</span>
-                </div>
-            </div>
-            <!-- Text input-->
+            <%--<!-- Text input-->--%>
+            <%--<div class="form-group">--%>
+            <%--<label class="col-md-4 control-label" for="endDate">Поездка по</label>--%>
+            <%--<div class="col-md-4">--%>
+            <%--<input id="endDate" name="endDate" type="text" placeholder="Крайний срок"--%>
+            <%--class="form-control input-md" required="true">--%>
+            <%--<span class="help-block">Когда станет поздно забирать?</span>--%>
+            <%--</div>--%>
+            <%--</div>--%>
+            <%--<!-- Text input-->--%>
 
 
             <div class="row">
@@ -235,4 +305,5 @@
 </div>
 
 </body>
+
 </html>
