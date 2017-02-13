@@ -72,32 +72,12 @@
             <!-- Form Name -->
             <%--<legend>Создание заявки на транспорт</legend>--%>
             <legend>
-                <H1 class="text-center" style="margin: 10px 30px 10px 10px;">Создание заявки на транспортировку</H1>
+                <H1 class="text-center" style="margin: 30px 30px 30px 30px;">Создание заявки на транспортировку</H1>
             </legend>
-
-            <div class="container">
-                <div class="row">
-                    <div class='col-sm-6'>
-                        <div class="form-group">
-                            <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control"/>
-                                <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                            </div>
-                        </div>
-                    </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#datetimepicker1').datetimepicker();
-                        });
-                    </script>
-                </div>
-            </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Ваше имя</label>
+                <label class="col-md-4 control-label" for="name">Кто заказал</label>
                 <div class="col-md-5">
                     <input id="name" name="name" type="text" placeholder="Ваше имя" class="form-control input-md"
                            required="true">
@@ -105,9 +85,9 @@
                 </div>
             </div>
 
-
+            <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Ваше имя</label>
+                <label class="col-md-4 control-label" for="name">Кому отгружать</label>
                 <div class="col-md-5">
                     <input id="whom" name="whom" type="whom" placeholder="Кому отдать груз"
                            class="form-control input-md"
@@ -131,14 +111,13 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="startDate">Поездка с</label>
+                <label class="col-md-4 control-label" for="startDate">Время поездки</label>
                 <div class="col-md-4">
-
-
                     <div class="container">
-                        <div class='col-md-3'>
+                        <%--<label class="col-md-4 control-label" for="startDate"> с </label>--%>
+                        <div class='col-md-4'>
                             <div class="form-group">
-                                <div class='input-group date' id='datetimepicker6'>
+                                <div class='input-group date' id='startDate'>
                                     <input type='text' class="form-control"/>
                                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
@@ -148,9 +127,11 @@
                         </div>
 
 
-                        <div class='col-md-3'>
+                        <%--<label class="col-md-4 control-label" for="endDate"> по </label>--%>
+
+                        <div class='col-md-4'>
                             <div class="form-group">
-                                <div class='input-group date' id='datetimepicker7'>
+                                <div class='input-group date' id='endDate'>
                                     <input type='text' class="form-control"/>
                                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
@@ -161,23 +142,26 @@
                     </div>
                     <script type="text/javascript">
                         $(function () {
-                            $('#datetimepicker6').datetimepicker({
+                            $('#startDate').datetimepicker({
                                 useCurrent: false, //Important! See issue #1075
                                 sideBySide: true,
                                 locale: 'ru',
+                                defaultDate: moment(),
                                 format: 'DD.MM.YYYY, HH:mm'
                             });
-                            $('#datetimepicker7').datetimepicker({
+                            $('#endDate').datetimepicker({
                                 useCurrent: false, //Important! See issue #1075
                                 sideBySide: true,
                                 locale: 'ru',
+                                defaultDate: moment(),
                                 format: 'DD.MM.YYYY, HH:mm'
                             });
-                            $("#datetimepicker6").on("dp.change", function (e) {
-                                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                            $("#startDate").on("dp.change", function (e) {
+                                $('#endDate').data("DateTimePicker").minDate(e.date);
+
                             });
-                            $("#datetimepicker7").on("dp.change", function (e) {
-                                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                            $("#endDate").on("dp.change", function (e) {
+                                $('#startDate').data("DateTimePicker").maxDate(e.date);
                             });
                         });
                     </script>
