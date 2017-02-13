@@ -66,7 +66,7 @@
 <%--<div class="container-narrow">--%>
 <div class="container theme-showcase" role="main">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="POST" action="/saveOrder">
         <fieldset>
 
             <!-- Form Name -->
@@ -90,8 +90,7 @@
                 <label class="col-md-4 control-label" for="name">Кому отгружать</label>
                 <div class="col-md-5">
                     <input id="whom" name="whom" type="whom" placeholder="Кому отдать груз"
-                           class="form-control input-md"
-                           required="true">
+                           class="form-control input-md">
                     <span class="help-block">Кому отдать?</span>
                 </div>
             </div>
@@ -113,12 +112,12 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="startDate">Время поездки</label>
                 <div class="col-md-4">
-                    <div class="container">
+                    <%--<div class="container">--%>
                         <%--<label class="col-md-4 control-label" for="startDate"> с </label>--%>
                         <div class='col-md-4'>
                             <div class="form-group">
-                                <div class='input-group date' id='startDate'>
-                                    <input type='text' class="form-control"/>
+                                <div class='input-group date' name='startDate' id='startDate' required="true">
+                                    <input type='text' class="form-control" name='startDate'/>
                                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -131,8 +130,8 @@
 
                         <div class='col-md-4'>
                             <div class="form-group">
-                                <div class='input-group date' id='endDate'>
-                                    <input type='text' class="form-control"/>
+                                <div class='input-group date' name='endDate' id='endDate' required="true">
+                                    <input type='text' class="form-control" name='endDate'/>
                                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -166,25 +165,8 @@
                         });
                     </script>
 
-
-                    <%----%>
-                    <%--<input id="startDate" name="startDate" type="text" placeholder="Дата начала"--%>
-                    <%--class="form-control input-md" required="true">--%>
-                    <%--<span class="help-block">Когда можно будет забрать?</span>--%>
-                </div>
+                <%--</div>--%>
             </div>
-
-            <%--<!-- Text input-->--%>
-            <%--<div class="form-group">--%>
-            <%--<label class="col-md-4 control-label" for="endDate">Поездка по</label>--%>
-            <%--<div class="col-md-4">--%>
-            <%--<input id="endDate" name="endDate" type="text" placeholder="Крайний срок"--%>
-            <%--class="form-control input-md" required="true">--%>
-            <%--<span class="help-block">Когда станет поздно забирать?</span>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--<!-- Text input-->--%>
-
 
             <div class="row">
 
@@ -194,7 +176,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="address">Адрес</label>
                 <div class="col-md-4">
-                    <textarea class="form-control" id="address" name="address" placeholder="Куда ехать?"></textarea>
+                    <textarea class="form-control" id="address" name="address" placeholder="Куда ехать?"
+                              required="true"> </textarea>
                 </div>
             </div>
 
@@ -263,7 +246,7 @@
 
             <!-- Textarea -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="comment">Комментарий</label>
+                <label class="col-md-4 control-label" for="comment" required="true">Комментарий</label>
                 <div class="col-md-4">
                     <textarea class="form-control" id="comment" name="comment"></textarea>
                     <span class="help-block">Давным-давно, в далёкой-далёкой галактике....</span>

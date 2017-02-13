@@ -32,6 +32,15 @@
         <url-pattern>/addUnits</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SaveOrderServlet</servlet-name>
+        <servlet-class>servlets.SaveOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveOrderServlet</servlet-name>
+        <url-pattern>/saveOrder</url-pattern>
+    </servlet-mapping>
+
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
