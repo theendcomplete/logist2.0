@@ -111,10 +111,10 @@
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="startDate">Время поездки</label>
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <%--<div class="container">--%>
                         <%--<label class="col-md-4 control-label" for="startDate"> с </label>--%>
-                        <div class='col-md-4'>
+                    <div class='col-md-3'>
                             <div class="form-group">
                                 <div class='input-group date' name='startDate' id='startDate' required="true">
                                     <input type='text' class="form-control" name='startDate'/>
@@ -128,7 +128,7 @@
 
                         <%--<label class="col-md-4 control-label" for="endDate"> по </label>--%>
 
-                        <div class='col-md-4'>
+                    <div class='col-md-3'>
                             <div class="form-group">
                                 <div class='input-group date' name='endDate' id='endDate' required="true">
                                     <input type='text' class="form-control" name='endDate'/>
