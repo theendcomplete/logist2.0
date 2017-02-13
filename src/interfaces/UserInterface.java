@@ -14,6 +14,8 @@ public interface UserInterface {
 
     User getUserById(Long id) throws SQLException;
 
+    User getUserByName(String name) throws SQLException;
+
     Collection getAllUsers() throws SQLException;
 
     void deleteUser(User user) throws SQLException;

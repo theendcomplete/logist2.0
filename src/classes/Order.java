@@ -10,14 +10,8 @@ public class Order {
     private String target;
     private Date startDate;
     private Date endDate;
-
-
     private TransportCompany transportCompany;
-
-
     private byte[] image;
-
-
     private User user;
     private Cargo cargo;
     private Contractor contractor;
