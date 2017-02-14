@@ -24,18 +24,26 @@
     <script src="/resources/js/moment.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 </head>
 <body>
 
+
 <form id="login-form" action="/order" method="get" role="form" class="form-horizontal">
+    <legend>
+        <H1 class="text-center" style="margin: 30px 30px 30px 30px;">Пожалуйста, представьтесь</H1>
+    </legend>
+
+
     <div class="form-group">
         <label class="col-md-4 control-label" for="login">Имя пользователя</label>
         <div class="col-md-4">
             <input id="login" name="login" type="text" placeholder="например, ivanov"
                    class="form-control input-md" required="">
+
             <span class="help-block">Вводится при помощи клавиатуры</span>
+
+
         </div>
     </div>
 
@@ -53,14 +61,15 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="signin"></label>
         <div class="col-md-8">
-            <button id="signin" name="signin" class="btn btn-success">Войти</button>
-            <a href="/order" button id="register" name="register" class="btn btn-warning">Создать
-                пользователя</a>
+            <%--<button id="signin" name="signin" class="btn btn btn-primary">Войти</button>--%>
+            <button id="signin" name="signin" class="btn btn-primary">Отправить заявку</button>
+            </a>
         </div>
     </div>
 
     </fieldset>
 </form>
+<a href="/order" button id="register" name="register" class="btn btn-block" align="center">у меня нет логина</a>
 
 </div> <!-- /container -->
 
