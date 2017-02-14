@@ -10,7 +10,6 @@ public class User {
     private String password;
     private String pin;
     private String type;
-    //    private Set Users = new HashSet();
     private Collection<Order> orders;
 
     public User() {
