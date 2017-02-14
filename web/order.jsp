@@ -194,7 +194,8 @@
 
             <!-- Multiple Checkboxes (inline) -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="dop">Дополнительно</label>
+                <%--<label class="col-md-4 control-label" for="dop">Дополнительно</label>--%>
+                <label class="col-md-4 control-label">Дополнительно</label>
 
 
                 <div class="col-md-6 ">

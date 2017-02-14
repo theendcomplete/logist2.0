@@ -24,7 +24,7 @@ public class DriverInterfaceImplementation implements DriverInterface {
             session.save(driver);
             session.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при добавлении водителя " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -48,7 +48,7 @@ public class DriverInterfaceImplementation implements DriverInterface {
 
 
         } catch (Exception e) {
-            System.out.println("ошибка при поиске " + e);
+            System.out.println("ошибка при поиске водителя по айди" + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();

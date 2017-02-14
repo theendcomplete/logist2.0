@@ -6,7 +6,9 @@ import interfaces.UserInterface;
 import org.hibernate.Session;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by theendcomplete on 13.02.2017.
@@ -21,7 +23,7 @@ public class UserInterfaceImplementation implements UserInterface {
             session.save(user);
             session.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при добавлении пользователя " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -42,7 +44,7 @@ public class UserInterfaceImplementation implements UserInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             user = session.load(User.class, id);
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при поиске пользователя по id " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -59,7 +61,7 @@ public class UserInterfaceImplementation implements UserInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             user = session.load(User.class, name);
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при поиске пользователя по имени  " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -70,13 +72,39 @@ public class UserInterfaceImplementation implements UserInterface {
 
     @Override
     public Collection getAllUsers() throws SQLException {
+        Session session = null;
+        List users = new ArrayList<User>();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            users = session.createCriteria(User.class).list();
+        } catch (Exception e) {
+            System.out.println("ошибка при получении списка пользователей " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return users;
 
-
-        return null;
     }
 
     @Override
     public void deleteUser(User user) throws SQLException {
+
+
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.delete(user);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("ошибка при удалении " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
 
     }
 }

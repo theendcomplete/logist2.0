@@ -26,7 +26,7 @@ public class UnitInterfaceImplementation implements UnitInterface {
             session.save(unit);
             session.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при добавлении единицы измерения " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -48,7 +48,7 @@ public class UnitInterfaceImplementation implements UnitInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             unit = session.load(Unit.class, id);
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при поиске по айди единицы измерения " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -66,7 +66,7 @@ public class UnitInterfaceImplementation implements UnitInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             units = session.createCriteria(Car.class).list();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при получении списка всех единиц измерения " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -79,7 +79,6 @@ public class UnitInterfaceImplementation implements UnitInterface {
     @Override
     public void deleteUnit(Unit unit) throws SQLException {
 
-
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
@@ -87,7 +86,7 @@ public class UnitInterfaceImplementation implements UnitInterface {
             session.delete(unit);
             session.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при удалении единицы измерения " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();

@@ -25,7 +25,7 @@ public class OrderInterfaceImplementation implements OrderInterface {
             session.save(order);
             session.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при добавлении заявки " + e);
         } finally {
             if (session != null && session.isOpen()) {
 
@@ -48,7 +48,7 @@ public class OrderInterfaceImplementation implements OrderInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             order = session.load(Order.class, id);
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при поиске заявки по айди " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -65,7 +65,7 @@ public class OrderInterfaceImplementation implements OrderInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             orders = session.createCriteria(Car.class).list();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при получении списка заявок " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();

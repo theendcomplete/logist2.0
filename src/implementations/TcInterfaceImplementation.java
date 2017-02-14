@@ -25,7 +25,7 @@ public class TcInterfaceImplementation implements TransportCompanyInterface {
             session.save(transportCompany);
             session.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при добавлении транспортной компании  " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -47,7 +47,7 @@ public class TcInterfaceImplementation implements TransportCompanyInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             transportCompany = session.load(TransportCompany.class, id);
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при получении транспортной компании по айди " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -65,7 +65,7 @@ public class TcInterfaceImplementation implements TransportCompanyInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             tcs = session.createCriteria(TransportCompany.class).list();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при получении списка транспортных компаниий " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -86,7 +86,7 @@ public class TcInterfaceImplementation implements TransportCompanyInterface {
             session.delete(transportCompany);
             session.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при удалении транспортной компании " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();

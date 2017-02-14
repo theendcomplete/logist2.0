@@ -25,7 +25,7 @@ public class CarInterfaceImplementation implements CarInterface {
             session.save(car);
             session.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при добавлении машины " + e);
         } finally {
             if (session != null && session.isOpen()) {
 
@@ -50,7 +50,7 @@ public class CarInterfaceImplementation implements CarInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             car = session.load(Car.class, id);
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при поиске машины по айди " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -70,7 +70,7 @@ public class CarInterfaceImplementation implements CarInterface {
             session = HibernateUtil.getSessionFactory().openSession();
             cars = session.createCriteria(Car.class).list();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при получении списка всех машин " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -91,7 +91,7 @@ public class CarInterfaceImplementation implements CarInterface {
             session.delete(car);
             session.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("ошибка при вставке " + e);
+            System.out.println("ошибка при удалении машины " + e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
