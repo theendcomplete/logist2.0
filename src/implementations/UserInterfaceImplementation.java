@@ -4,6 +4,7 @@ import classes.User;
 import factories.HibernateUtil;
 import interfaces.UserInterface;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class UserInterfaceImplementation implements UserInterface {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            session.createCriteria(User.class, "user").add(Restrictions.eq("user.name", user.getName())).uniqueResult();
             session.beginTransaction();
             session.save(user);
             session.getTransaction().commit();
@@ -68,6 +70,48 @@ public class UserInterfaceImplementation implements UserInterface {
             }
         }
         return user;
+    }
+
+    @Override
+    public User getUserByLogin(String login) throws SQLException {
+        Session session = null;
+        User user = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            user = session.load(User.class, login);
+        } catch (Exception e) {
+            System.out.println("ошибка при поиске пользователя по логину  " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return user;
+    }
+
+    @Override
+    public User getUserByLoginAndPassword(String login, String password) throws SQLException {
+        Session session = null;
+        User user = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            user = session.load(User.class, login);
+
+        } catch (Exception e) {
+            System.out.println("ошибка при поиске пользователя по логину и паролю  " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+
+        if (user.getPassword().equals(password.hashCode())) {
+            return user;
+        } else user = null;
+        return user;
+
+
     }
 
     @Override

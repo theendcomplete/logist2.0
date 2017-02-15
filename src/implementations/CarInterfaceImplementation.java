@@ -68,6 +68,11 @@ public class CarInterfaceImplementation implements CarInterface {
         List cars = new ArrayList<Car>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
+            //Get Criteria Builder
+            //todo переделать criteria
+//            CriteriaBuilder builder = session.getCriteriaBuilder();
+//            https://teamtreehouse.com/community/the-sessions-method-createcriteria-is-deprecated-how-should-i-proceed-for-establishing-class-criteria
+
             cars = session.createCriteria(Car.class).list();
         } catch (Exception e) {
             System.out.println("ошибка при получении списка всех машин " + e);

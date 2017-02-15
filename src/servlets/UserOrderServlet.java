@@ -1,5 +1,7 @@
 package servlets;
 
+import classes.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,10 +29,14 @@ public class UserOrderServlet extends HttpServlet {
 
 
         PrintWriter out = response.getWriter();
-        out.println("it works");
+        User user = (User) request.getAttribute("user");
+        System.out.println(user.getPassword());
+        System.out.println("Slayer123".hashCode());
+        out.println("it works, order.servlet");
+
 
         out.println("order");
-        request.getRequestDispatcher("order.jsp").forward(request, response);
+        request.getRequestDispatcher("/order.jsp").forward(request, response);
 
     }
 }

@@ -34,14 +34,13 @@
         <H1 class="text-center" style="margin: 30px 30px 30px 30px;">Пожалуйста, представьтесь</H1>
     </legend>
 
-
     <div class="form-group">
         <label class="col-md-4 control-label" for="login">Имя пользователя</label>
         <div class="col-md-4">
             <input id="login" name="login" type="text" placeholder="например, ivanov"
                    class="form-control input-md" required="">
 
-            <span class="help-block">Вводится при помощи клавиатуры</span>
+            <span class="help-block">Нет логина? Жмите сюда -  <a href="/register.jsp">у меня нет логина</a></span>
 
 
         </div>
@@ -60,16 +59,17 @@
     <!-- Button (Double) -->
     <div class="form-group">
         <label class="col-md-4 control-label" for="signin"></label>
-        <div class="col-md-8">
+        <div class="col-md-12" align="center">
             <%--<button id="signin" name="signin" class="btn btn btn-primary">Войти</button>--%>
-            <button id="signin" name="signin" class="btn btn-primary">Отправить заявку</button>
-            </a>
+            <%--<button id="signin" name="signin" class="btn btn-primary">Войти</button>--%>
+            <button id="signin" class="btn btn-primary">Войти</button>
+
         </div>
     </div>
 
     </fieldset>
 </form>
-<a href="/order" button id="register" name="register" class="btn btn-block" align="center">у меня нет логина</a>
+<%--<a href="/order" button id="register" name="register" class="btn btn-block" align="center">у меня нет логина</a>--%>
 
 </div> <!-- /container -->
 

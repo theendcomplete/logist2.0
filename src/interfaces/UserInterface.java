@@ -16,6 +16,10 @@ public interface UserInterface {
 
     User getUserByName(String name) throws SQLException;
 
+    User getUserByLogin(String login) throws SQLException;
+
+    User getUserByLoginAndPassword(String login, String password) throws SQLException;
+
     Collection getAllUsers() throws SQLException;
 
     void deleteUser(User user) throws SQLException;

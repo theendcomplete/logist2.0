@@ -35,6 +35,17 @@
         <url-pattern>/addDrivers</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>CreateUser</servlet-name>
+        <servlet-class>servlets.CreateUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateUser</servlet-name>
+        <url-pattern>/createUser</url-pattern>
+    </servlet-mapping>
+
+
     <servlet>
         <servlet-name>AddUnits</servlet-name>
         <servlet-class>servlets.CreateUnitsServlet</servlet-class>
