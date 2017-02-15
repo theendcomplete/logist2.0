@@ -15,10 +15,16 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "UserOrderServlet")
 public class UserOrderServlet extends HttpServlet {
+    User user;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        user = (User) request.getAttribute("user");
+        System.out.println(user.getPassword());
+        System.out.println("Slayer123".hashCode());
+
+        request.getRequestDispatcher("/order.jsp").forward(request, response);
 
 
     }
@@ -29,9 +35,9 @@ public class UserOrderServlet extends HttpServlet {
 
 
         PrintWriter out = response.getWriter();
-        User user = (User) request.getAttribute("user");
-        System.out.println(user.getPassword());
-        System.out.println("Slayer123".hashCode());
+//        user = (User) request.getAttribute("user");
+//        System.out.println(user.getPassword());
+//        System.out.println("Slayer123".hashCode());
         out.println("it works, order.servlet");
 
 

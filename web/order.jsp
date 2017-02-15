@@ -80,7 +80,7 @@
                 <label class="col-md-4 control-label" for="name">Кто заказал</label>
                 <div class="col-md-5">
                     <input id="name" name="name" type="text" placeholder="Ваше имя" class="form-control input-md"
-                           required="true">
+                           required="true" value="">
                     <span class="help-block">Вас так зовут</span>
                 </div>
             </div>
@@ -113,57 +113,57 @@
                 <label class="col-md-4 control-label" for="startDate">Время поездки</label>
                 <div class="col-md-8">
                     <%--<div class="container">--%>
-                        <%--<label class="col-md-4 control-label" for="startDate"> с </label>--%>
+                    <%--<label class="col-md-4 control-label" for="startDate"> с </label>--%>
                     <div class='col-md-3'>
-                            <div class="form-group">
-                                <div class='input-group date' name='startDate' id='startDate' required="true">
-                                    <input type='text' class="form-control" name='startDate'/>
-                                    <span class="input-group-addon">
+                        <div class="form-group">
+                            <div class='input-group date' name='startDate' id='startDate' required="true">
+                                <input type='text' class="form-control" name='startDate'/>
+                                <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <%--<label class="col-md-4 control-label" for="endDate"> по </label>--%>
-
-                    <div class='col-md-3'>
-                            <div class="form-group">
-                                <div class='input-group date' name='endDate' id='endDate' required="true">
-                                    <input type='text' class="form-control" name='endDate'/>
-                                    <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#startDate').datetimepicker({
-                                useCurrent: false, //Important! See issue #1075
-                                sideBySide: true,
-                                locale: 'ru',
-                                defaultDate: moment(),
-                                format: 'DD.MM.YYYY, HH:mm'
-                            });
-                            $('#endDate').datetimepicker({
-                                useCurrent: false, //Important! See issue #1075
-                                sideBySide: true,
-                                locale: 'ru',
-                                defaultDate: moment(),
-                                format: 'DD.MM.YYYY, HH:mm'
-                            });
-                            $("#startDate").on("dp.change", function (e) {
-                                $('#endDate').data("DateTimePicker").minDate(e.date);
 
-                            });
-                            $("#endDate").on("dp.change", function (e) {
-                                $('#startDate').data("DateTimePicker").maxDate(e.date);
-                            });
+
+                    <%--<label class="col-md-4 control-label" for="endDate"> по </label>--%>
+
+                    <div class='col-md-3'>
+                        <div class="form-group">
+                            <div class='input-group date' name='endDate' id='endDate' required="true">
+                                <input type='text' class="form-control" name='endDate'/>
+                                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#startDate').datetimepicker({
+                            useCurrent: false, //Important! See issue #1075
+                            sideBySide: true,
+                            locale: 'ru',
+                            defaultDate: moment(),
+                            format: 'DD.MM.YYYY, HH:mm'
                         });
-                    </script>
+                        $('#endDate').datetimepicker({
+                            useCurrent: false, //Important! See issue #1075
+                            sideBySide: true,
+                            locale: 'ru',
+                            defaultDate: moment(),
+                            format: 'DD.MM.YYYY, HH:mm'
+                        });
+                        $("#startDate").on("dp.change", function (e) {
+                            $('#endDate').data("DateTimePicker").minDate(e.date);
+
+                        });
+                        $("#endDate").on("dp.change", function (e) {
+                            $('#startDate').data("DateTimePicker").maxDate(e.date);
+                        });
+                    });
+                </script>
 
                 <%--</div>--%>
             </div>
