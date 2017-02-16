@@ -37,6 +37,8 @@ public class CreateUserServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
@@ -45,7 +47,8 @@ public class CreateUserServlet extends HttpServlet {
         out.println("it works, CreateUserServlet GET");
 
         out.println("order");
-        request.getRequestDispatcher("/order").forward(request, response);
+//        request.getRequestDispatcher("/order").forward(request, response);
+        response.sendRedirect("/order");
     }
 
 
@@ -53,7 +56,6 @@ public class CreateUserServlet extends HttpServlet {
         User user = new User();
         user.setName(request.getParameter("name"));
         user.setLogin(request.getParameter("login"));
-
         user.setPhone((request.getParameter("phone")));
         user.setEmail(request.getParameter("email"));
         user.setPassword(String.valueOf((request.getParameter("password")).hashCode()));

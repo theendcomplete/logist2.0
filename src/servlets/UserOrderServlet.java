@@ -24,7 +24,9 @@ public class UserOrderServlet extends HttpServlet {
         System.out.println(user.getPassword());
         System.out.println("Slayer123".hashCode());
 
-        request.getRequestDispatcher("/order.jsp").forward(request, response);
+        request.getRequestDispatcher("/order").forward(request, response);
+
+//        response.sendRedirect("/order.jsp");
 
 
     }
@@ -44,5 +46,11 @@ public class UserOrderServlet extends HttpServlet {
         out.println("order");
         request.getRequestDispatcher("/order.jsp").forward(request, response);
 
+
     }
+
+//
+//    class PostDeleteAdapter extends HttpServletRequestWrapper {
+//        public String getMethod(){ return "POST"; }
+//    }
 }

@@ -56,7 +56,7 @@
         </div>
     </div>
 
-    <!-- Button (Double) -->
+    <!-- Button  -->
     <div class="form-group">
         <label class="col-md-4 control-label" for="signin"></label>
         <div class="col-md-12" align="center">
@@ -69,6 +69,7 @@
 
     </fieldset>
 </form>
+<a href="/order" class="btn btn-block" align="center">Заказать без логина</a>
 <%--<a href="/order" button id="register" name="register" class="btn btn-block" align="center">у меня нет логина</a>--%>
 
 </div> <!-- /container -->
