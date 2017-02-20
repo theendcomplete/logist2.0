@@ -90,7 +90,7 @@ public class UserInterfaceImplementation implements UserInterface {
     }
 
     @Override
-    public User getUserByLoginAndPassword(String login, String password) throws SQLException {
+    public User checkUserLoginAndPassword(String login, String password) throws SQLException {
         Session session = null;
         User user = null;
         try {
@@ -108,8 +108,8 @@ public class UserInterfaceImplementation implements UserInterface {
 
         if (user.getPassword().equals(password.hashCode())) {
             return user;
-        } else user = null;
-        return user;
+        } else
+            return user;
 
 
     }

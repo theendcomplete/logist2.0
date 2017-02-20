@@ -18,7 +18,7 @@ public interface UserInterface {
 
     User getUserByLogin(String login) throws SQLException;
 
-    User getUserByLoginAndPassword(String login, String password) throws SQLException;
+    User checkUserLoginAndPassword(String login, String password) throws SQLException;
 
     Collection getAllUsers() throws SQLException;
 
