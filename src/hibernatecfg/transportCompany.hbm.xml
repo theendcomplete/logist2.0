@@ -10,6 +10,7 @@
         <property column="phone" name="phone" type="java.lang.String"/>
         <property column="address" name="address" type="java.lang.String"/>
         <property column="comment" name="comment" type="java.lang.String"/>
+        <property column="image" name="image" type="binary"/>
         <one-to-one name="orders" cascade="all" class="classes.Order"/>
 
     </class>

@@ -51,6 +51,15 @@
             <%--<span class="help-block">Нет логина? Жмите сюда -  <a href="/register.jsp">у меня нет логина</a></span>--%>
         </div>
     </div>
+    <!-- File Button http://getbootstrap.com/css/#forms -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="fileinput" class="control-label">Схема проезда</label>
+        <div class="col-md-4">
+
+            <input type="file" id="fileinput" name="fileinput">
+            <span class="help-block">Приложите схему проезда (необязатеьно)</span>
+        </div>
+    </div>
 
     <div class="form-group">
         <label class="col-md-4 control-label" for="phone">Телефон</label>
@@ -71,7 +80,7 @@
         <div class="col-md-4">
             <input id="comment" name="comment" type="comment"
                    placeholder="например, 'вход со стороны синих ворот', или 'по вторникам на ресепшене неадекватная женщина' "
-                   class="form-control input-md" required="">
+                   class="form-control input-md">
             <%--<span class="help-block">тут - ваш пароль, все так же при помощи клавиатуры</span>--%>
         </div>
     </div>

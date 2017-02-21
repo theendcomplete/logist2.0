@@ -7,9 +7,17 @@ public class TransportCompany {
     private String name;
     private String phone;
     private Order orders;
-
+    private byte[] image;
 
     public TransportCompany() {
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public Order getOrders() {

@@ -39,6 +39,10 @@ public class SaveTCServlet extends HttpServlet {
             tc.setComment(request.getParameter("comment"));
         }
 
+//        if (request.getParameter("fileinput") != null) {
+//            tc.setImage(request.getParameter("fileinput"));
+//        }
+
         TcInterfaceImplementation tcInterfaceImplementation = new TcInterfaceImplementation();
         try {
             tcInterfaceImplementation.addTc(tc);

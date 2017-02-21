@@ -66,6 +66,9 @@
 <%
 
     User user = new User();
+//    user.setLogin("anonimous");
+    user.setName("");
+
     if (request.getAttribute("user") != null) {
         user = (User) request.getAttribute("user");
     }
@@ -99,7 +102,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="name">Кому отгружать</label>
                 <div class="col-md-4">
-                    <input id="whom" name="whom" type="whom" placeholder="Кому отдать груз"
+                    <input id="whom" name="whom" type="whom" value="<%=user.getName()%>" placeholder="Кому отдать груз"
                            class="form-control input-md">
                     <span class="help-block">Кому отдать?</span>
                 </div>
