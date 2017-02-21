@@ -1,3 +1,4 @@
+<%@ page import="classes.User" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//RU" "http://www.w3.org/TR/html4/loose.dtd">
@@ -62,6 +63,15 @@
 
 <body bgcolor="#FFFFFF" text="#000000">
 
+<%
+
+    User user = new User();
+    if (request.getAttribute("user") != null) {
+        user = (User) request.getAttribute("user");
+    }
+
+
+%>
 
 <%--<div class="container-narrow">--%>
 <div class="container theme-showcase" role="main">
@@ -80,7 +90,7 @@
                 <label class="col-md-4 control-label" for="name">Кто заказал</label>
                 <div class="col-md-5">
                     <input id="name" name="name" type="text" placeholder="Ваше имя" class="form-control input-md"
-                           required="true" value="">
+                           required="true" value="<%=user.getName()%>">
                     <span class="help-block">Вас так зовут</span>
                 </div>
             </div>

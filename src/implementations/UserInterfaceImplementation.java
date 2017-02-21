@@ -3,6 +3,7 @@ package implementations;
 import classes.User;
 import factories.HibernateUtil;
 import interfaces.UserInterface;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -95,7 +96,11 @@ public class UserInterfaceImplementation implements UserInterface {
         User user = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            user = session.load(User.class, login);
+            Criteria userCriteria = session.createCriteria(User.class);
+            userCriteria.add(Restrictions.eq("login", login));
+            userCriteria.add(Restrictions.eq("password", String.valueOf(password.hashCode())));
+            user = (User) userCriteria.uniqueResult();
+//            session.close();
 
         } catch (Exception e) {
             System.out.println("ошибка при поиске пользователя по логину и паролю  " + e);
@@ -106,11 +111,7 @@ public class UserInterfaceImplementation implements UserInterface {
         }
 
 
-        if (user.getPassword().equals(password.hashCode())) {
-            return user;
-        } else
-            return user;
-
+        return user;
 
     }
 

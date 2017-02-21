@@ -26,25 +26,31 @@ public class UserOrderServlet extends HttpServlet {
         if (request.getAttribute("user") != null) {
             user = (User) request.getAttribute("user");
         } else {
-            if ((request.getAttribute("login") != null) && (request.getAttribute("password") != null)) {
-
+            if ((request.getParameter("login") != null) && (request.getParameter("password") != null)) {
+                String login = request.getParameter("login");
+                String password = request.getParameter("password");
                 User userChecked = null;
                 UserInterfaceImplementation userInterfaceImplementation = new UserInterfaceImplementation();
                 try {
-                    userChecked = userInterfaceImplementation.checkUserLoginAndPassword(user.getLogin(), user.getPassword());
+                    userChecked = userInterfaceImplementation.checkUserLoginAndPassword(login, password);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
 
                 if (userChecked != null)
                     user = userChecked;
+                request.setAttribute("user", userChecked);
+
             }
         }
-
-//        System.out.println(user.getPassword());
-//        System.out.println("Slayer123".hashCode());
-        request.getRequestDispatcher("/order").forward(request, response);
-//        response.sendRedirect("/order.jsp");
+//        Order order = new Order();
+//        OrderInterfaceImplementation orderInterfaceImplementation = new OrderInterfaceImplementation();
+//        try {
+//            orderInterfaceImplementation.addOrder(order);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+        request.getRequestDispatcher("/order.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,20 +59,15 @@ public class UserOrderServlet extends HttpServlet {
 
 
         PrintWriter out = response.getWriter();
-//        user = (User) request.getAttribute("user");
-//        System.out.println(user.getPassword());
-//        System.out.println("Slayer123".hashCode());
         out.println("it works, order.servlet");
 
 
+        if (user != null) {
+            request.setAttribute("user", user);
+        }
         out.println("order");
         request.getRequestDispatcher("/order.jsp").forward(request, response);
 
 
     }
-
-//
-//    class PostDeleteAdapter extends HttpServletRequestWrapper {
-//        public String getMethod(){ return "POST"; }
-//    }
 }

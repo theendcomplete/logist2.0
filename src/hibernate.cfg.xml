@@ -17,8 +17,8 @@
 
         <mapping resource="hibernatecfg/car.hbm.xml"/>
         <mapping resource="hibernatecfg/driver.hbm.xml"/>
-        <mapping resource="hibernatecfg/unit.hbm.xml"/>
-        <mapping resource="hibernatecfg/cargo.hbm.xml"/>
+        <!--<mapping resource="hibernatecfg/unit.hbm.xml"/>-->
+        <!--<mapping resource="hibernatecfg/cargo.hbm.xml"/>-->
         <mapping resource="hibernatecfg/contact.hbm.xml"/>
         <mapping resource="hibernatecfg/contractor.hbm.xml"/>
         <mapping resource="hibernatecfg/transportCompany.hbm.xml"/>

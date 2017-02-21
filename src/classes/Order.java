@@ -13,7 +13,7 @@ public class Order {
     private TransportCompany transportCompany;
     private byte[] image;
     private User user;
-    private Cargo cargo;
+    private String cargo;
     private Contractor contractor;
     private Collection<Contact> contact;
     private classes.Driver Driver;
@@ -22,11 +22,11 @@ public class Order {
     public Order() {
     }
 
-    public Cargo getCargo() {
+    public String getCargo() {
         return cargo;
     }
 
-    public void setCargo(Cargo cargo) {
+    public void setCargo(String cargo) {
         this.cargo = cargo;
     }
 
