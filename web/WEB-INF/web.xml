@@ -47,12 +47,12 @@
 
 
     <servlet>
-        <servlet-name>AddUnits</servlet-name>
-        <servlet-class>servlets.CreateUnitsServlet</servlet-class>
+        <servlet-name>SaveTC</servlet-name>
+        <servlet-class>servlets.SaveTCServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddUnits</servlet-name>
-        <url-pattern>/addUnits</url-pattern>
+        <servlet-name>SaveTC</servlet-name>
+        <url-pattern>/saveTC</url-pattern>
     </servlet-mapping>
 
     <servlet>

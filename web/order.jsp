@@ -88,7 +88,7 @@
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="name">Кто заказал</label>
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <input id="name" name="name" type="text" placeholder="Ваше имя" class="form-control input-md"
                            required="true" value="<%=user.getName()%>">
                     <span class="help-block">Вас так зовут</span>
@@ -98,7 +98,7 @@
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="name">Кому отгружать</label>
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <input id="whom" name="whom" type="whom" placeholder="Кому отдать груз"
                            class="form-control input-md">
                     <span class="help-block">Кому отдать?</span>
@@ -117,6 +117,18 @@
                     <span class="help-block">Зачем нужна машина?</span>
                 </div>
             </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cargo">Груз</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="cargo" name="cargo" placeholder="О грузе"
+                              required="true"> </textarea>
+                    <span class="help-block">Количество и единицы измерения, у кого забрать, нужно ли что-то дополнительное при перевозке</span>
+                </div>
+
+            </div>
+
 
             <!-- Text input-->
             <div class="form-group">
@@ -155,14 +167,14 @@
                             useCurrent: false, //Important! See issue #1075
                             sideBySide: true,
                             locale: 'ru',
-                            defaultDate: moment(),
+                            defaultDate: moment().add(1, 'days'),
                             format: 'DD.MM.YYYY, HH:mm'
                         });
                         $('#endDate').datetimepicker({
                             useCurrent: false, //Important! See issue #1075
                             sideBySide: true,
                             locale: 'ru',
-                            defaultDate: moment(),
+                            defaultDate: moment().add(2, 'days'),
                             format: 'DD.MM.YYYY, HH:mm'
                         });
                         $("#startDate").on("dp.change", function (e) {
@@ -182,14 +194,26 @@
 
             </div>
 
-            <!-- Textarea -->
+
             <div class="form-group">
                 <label class="col-md-4 control-label" for="address">Адрес</label>
                 <div class="col-md-4">
                     <textarea class="form-control" id="address" name="address" placeholder="Куда ехать?"
                               required="true"> </textarea>
+                    <span class="help-block">В случае отправки транспортной - "Куда отправлять"</span>
                 </div>
             </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="tc">Наименование транспортной</label>
+                <div class="col-md-4">
+                    <input id="tc" name="tc" type="text" placeholder="Деловые линии"
+                           class="form-control input-md">
+                    <span class="help-block">Транспортная компания, полное наименование</span>
+                </div>
+            </div>
+
 
             <!-- File Button http://getbootstrap.com/css/#forms -->
             <div class="form-group">
@@ -197,7 +221,7 @@
                 <div class="col-md-4">
 
                     <input type="file" id="fileinput" name="fileinput">
-                    <span class="help-block">Приложите схему проезда</span>
+                    <span class="help-block">Приложите схему проезда (необязатеьно)</span>
                 </div>
             </div>
 
