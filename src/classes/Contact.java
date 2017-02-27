@@ -7,18 +7,10 @@ public class Contact {
     private Long contact_ID;
     private String name;
     private String phone;
-    private Collection<Order> order;
+    private Collection<Order> Orders;
 
     public Contact() {
 
-    }
-
-    public Collection<Order> getOrder() {
-        return order;
-    }
-
-    public void setOrder(Collection<Order> order) {
-        this.order = order;
     }
 
     public Long getContact_ID() {
@@ -43,5 +35,13 @@ public class Contact {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Collection<Order> getOrders() {
+        return Orders;
+    }
+
+    public void setOrders(Collection<Order> orders) {
+        Orders = orders;
     }
 }

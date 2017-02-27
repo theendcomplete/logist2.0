@@ -219,14 +219,14 @@
 
 
             <!-- File Button http://getbootstrap.com/css/#forms -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="fileinput" class="control-label">Схема проезда</label>
-                <div class="col-md-4">
+            <%--<div class="form-group">--%>
+            <%--<label class="col-md-4 control-label" for="fileinput" class="control-label">Схема проезда</label>--%>
+            <%--<div class="col-md-4">--%>
 
-                    <input type="file" id="fileinput" name="fileinput">
-                    <span class="help-block">Приложите схему проезда (необязатеьно)</span>
-                </div>
-            </div>
+            <%--<input type="file" id="fileinput" name="fileinput">--%>
+            <%--<span class="help-block">Приложите схему проезда (необязатеьно)</span>--%>
+            <%--</div>--%>
+            <%--</div>--%>
 
 
             <!-- Multiple Checkboxes (inline) -->

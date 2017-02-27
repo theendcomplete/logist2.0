@@ -1,25 +1,42 @@
 package classes;
 
 
-import java.util.Collection;
 import java.util.Date;
 
 public class Order {
     private Long order_ID;
     private String address;
     private String target;
+    private String comment;
     private Date startDate;
     private Date endDate;
     private TransportCompany transportCompany;
     private byte[] image;
     private User user;
     private String cargo;
+    private String whom;
     private Contractor contractor;
-    private Collection<Contact> contact;
     private classes.Driver Driver;
     private classes.Car Car;
+    private classes.Contact Contact;
 
     public Order() {
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getWhom() {
+        return whom;
+    }
+
+    public void setWhom(String whom) {
+        this.whom = whom;
     }
 
     public String getCargo() {
@@ -62,6 +79,15 @@ public class Order {
         this.startDate = startDate;
     }
 
+//    public void setStartDate(String startDate) {
+//
+//        this.startDate = convertStringToDate(startDate);
+//        //todo conversion
+//        //28.02.2017, 11:31
+//        //'DD.MM.YYYY, HH:mm'
+//
+//    }
+
     public Date getEndDate() {
         return endDate;
     }
@@ -102,14 +128,6 @@ public class Order {
         this.contractor = contractor;
     }
 
-    public Collection<Contact> getContact() {
-        return contact;
-    }
-
-    public void setContact(Collection<Contact> contact) {
-        this.contact = contact;
-    }
-
     public classes.Driver getDriver() {
         return Driver;
     }
@@ -125,4 +143,15 @@ public class Order {
     public void setCar(classes.Car car) {
         Car = car;
     }
+
+    public classes.Contact getContact() {
+        return Contact;
+    }
+
+    public void setContact(classes.Contact contact) {
+        Contact = contact;
+    }
+
+
+
 }

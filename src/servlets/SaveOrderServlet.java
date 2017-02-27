@@ -1,6 +1,10 @@
 package servlets;
 
+import classes.Contact;
 import classes.Order;
+import classes.User;
+import implementations.ContactInterfaceImplementation;
+import implementations.OrderInterfaceImplementation;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by theendcomplete on 20.12.2016.
@@ -23,12 +31,54 @@ public class SaveOrderServlet extends HttpServlet {
 
         Order order = new Order();
         order.setAddress(request.getParameter("address"));
+        order.setUser((User) request.getAttribute("user"));
+        order.setWhom(request.getParameter("whom"));
+        order.setTarget(request.getParameter("target"));
+        order.setCargo(request.getParameter("cargo"));
+        order.setStartDate(convertStringToDate(request.getParameter("startDate")));
+        order.setEndDate(convertStringToDate(request.getParameter("endDate")));
+        order.setAddress(request.getParameter("address"));
+        if (request.getParameter("contact_name") != null) {
+            Contact contact = new Contact();
+            contact.setName(request.getParameter("contact_name"));
+            contact.setPhone(request.getParameter("contact_phone"));
+            ContactInterfaceImplementation contactInterfaceImplementation = new ContactInterfaceImplementation();
+            try {
+                contactInterfaceImplementation.addContact(contact);
+                order.setContact(contact);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        order.setComment(request.getParameter("comment"));
+        OrderInterfaceImplementation orderInterfaceImplementation = new OrderInterfaceImplementation();
+        try {
+            orderInterfaceImplementation.addOrder(order);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+    }
+
+
+    private Date convertStringToDate(String string) {
+        SimpleDateFormat sqlFormat = new SimpleDateFormat("DD.MM.YYYY, HH:mm");
+        java.util.Date date = new Date();
+        try {
+            date = new SimpleDateFormat("DD.MM.YYYY, HH:mm").parse(string);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 
 }

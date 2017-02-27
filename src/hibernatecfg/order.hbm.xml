@@ -8,6 +8,7 @@
         </id>
         <property column="address" name="address" type="java.lang.String"/>
         <property column="cargo" name="cargo" type="java.lang.String"/>
+        <property column="whom" name="whom" type="java.lang.String"/>
         <property column="target" name="target" type="java.lang.Integer"/>
         <property column="startDate" name="startDate" type="java.util.Date"/>
         <property column="endDate" name="endDate" type="java.util.Date"/>
@@ -15,11 +16,8 @@
         <many-to-one name="user" class="classes.User"/>
         <many-to-one name="contractor" cascade="all" class="classes.Contractor"/>
         <many-to-one name="Driver" lazy="false" class="classes.Driver"/>
+        <many-to-one name="Contact" class="classes.Contact"/>
         <one-to-one name="transportCompany" cascade="all" lazy="false" class="classes.TransportCompany"/>
         <one-to-one name="Car" class="classes.Car"/>
-        <set name="contact" cascade="all">
-            <key/>
-            <many-to-many class="classes.Contact"/>
-        </set>
     </class>
 </hibernate-mapping>
