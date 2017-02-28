@@ -15,12 +15,20 @@ public class Order {
     private User user;
     private String cargo;
     private String whom;
+    private String sum;
     private Contractor contractor;
     private classes.Driver Driver;
     private classes.Car Car;
     private classes.Contact Contact;
-
     public Order() {
+    }
+
+    public String getSum() {
+        return sum;
+    }
+
+    public void setSum(String sum) {
+        this.sum = sum;
     }
 
     public String getComment() {
@@ -78,15 +86,6 @@ public class Order {
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
-
-//    public void setStartDate(String startDate) {
-//
-//        this.startDate = convertStringToDate(startDate);
-//        //todo conversion
-//        //28.02.2017, 11:31
-//        //'DD.MM.YYYY, HH:mm'
-//
-//    }
 
     public Date getEndDate() {
         return endDate;

@@ -9,7 +9,8 @@
         <property column="address" name="address" type="java.lang.String"/>
         <property column="cargo" name="cargo" type="java.lang.String"/>
         <property column="whom" name="whom" type="java.lang.String"/>
-        <property column="target" name="target" type="java.lang.Integer"/>
+        <property column="target" name="target" type="java.lang.String"/>
+        <property column="sum" name="sum" type="java.lang.String"/>
         <property column="startDate" name="startDate" type="java.util.Date"/>
         <property column="endDate" name="endDate" type="java.util.Date"/>
         <property column="image" name="image" type="binary"/>

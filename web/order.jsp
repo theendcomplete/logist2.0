@@ -198,22 +198,23 @@
             </div>
 
 
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="sum">Сумма водителю</label>
+                <div class="col-md-4">
+                    <input id="sum" name="sum" type="text" placeholder="1 000 рублей"
+                           class="form-control input-md">
+                    <span class="help-block">Сумма к выдаче водителю (на отправку товара, парковку и т.д.)</span>
+                </div>
+            </div>
+
+
             <div class="form-group">
                 <label class="col-md-4 control-label" for="address">Адрес</label>
                 <div class="col-md-4">
                     <textarea class="form-control" id="address" name="address" placeholder="Куда ехать?"
                               required="true"> </textarea>
                     <span class="help-block">В случае отправки транспортной - "Куда отправлять"</span>
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="tc">Наименование транспортной</label>
-                <div class="col-md-4">
-                    <input id="tc" name="tc" type="text" placeholder="Деловые линии"
-                           class="form-control input-md">
-                    <span class="help-block">Транспортная компания, полное наименование</span>
                 </div>
             </div>
 

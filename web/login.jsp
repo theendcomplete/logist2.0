@@ -29,7 +29,7 @@
 <body>
 
 
-<form id="login-form" action="/order" method="POST" role="form" class="form-horizontal">
+<form id="login-form" action="/login" method="POST" role="form" class="form-horizontal">
     <legend>
         <H1 class="text-center" style="margin: 30px 30px 30px 30px;">Пожалуйста, представьтесь</H1>
     </legend>

@@ -4,7 +4,9 @@ import classes.Car;
 import classes.Contact;
 import factories.HibernateUtil;
 import interfaces.ContactInterface;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import java.sql.SQLException;
 import java.util.Collection;
@@ -52,4 +54,27 @@ public class ContactInterfaceImplementation implements ContactInterface {
     public void deleteContact(Contact contact) throws SQLException {
 
     }
+
+    @Override
+    public Contact searchContactByName(String name, String phone) throws SQLException {
+        Session session = null;
+        Contact contact = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Criteria userCriteria = session.createCriteria(Contact.class);
+            userCriteria.add(Restrictions.eq("name", name));
+            userCriteria.add(Restrictions.eq("phone", phone));
+            contact = (Contact) userCriteria.uniqueResult();
+//            session.close();
+
+        } catch (Exception e) {
+            System.out.println("ошибка при поиске Контакта по имени и номеру телефона" + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return contact;
+    }
+
 }

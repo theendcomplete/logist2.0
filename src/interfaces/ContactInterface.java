@@ -19,6 +19,8 @@ public interface ContactInterface {
 
     void deleteContact(Contact contact) throws SQLException;
 
+    Contact searchContactByName(String name, String phone) throws SQLException;
+
 
 //    public Collection getByDriver(Driver driver) throws SQLException;
 //    public Collection getBussesByRoute(Route route) throws SQLException;
