@@ -16,10 +16,19 @@ public class Order {
     private String cargo;
     private String whom;
     private String sum;
+
+    private String dover;
+    private String parking;
+    private String heat;
+    private String wepay;
+    private String big;
+
+
     private Contractor contractor;
     private classes.Driver Driver;
     private classes.Car Car;
     private classes.Contact Contact;
+
     public Order() {
     }
 
@@ -151,6 +160,43 @@ public class Order {
         Contact = contact;
     }
 
+    public String getDover() {
+        return dover;
+    }
 
+    public void setDover(String dover) {
+        this.dover = dover;
+    }
 
+    public String getParking() {
+        return parking;
+    }
+
+    public void setParking(String parking) {
+        this.parking = parking;
+    }
+
+    public String getHeat() {
+        return heat;
+    }
+
+    public void setHeat(String heat) {
+        this.heat = heat;
+    }
+
+    public String getWepay() {
+        return wepay;
+    }
+
+    public void setWepay(String wepay) {
+        this.wepay = wepay;
+    }
+
+    public String getBig() {
+        return big;
+    }
+
+    public void setBig(String big) {
+        this.big = big;
+    }
 }

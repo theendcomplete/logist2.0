@@ -44,6 +44,18 @@ public class SaveOrderServlet extends HttpServlet {
         order.setTarget(request.getParameter("target"));
         order.setSum(request.getParameter("sum"));
         order.setCargo(request.getParameter("cargo"));
+
+
+        order.setDover(request.getParameter("dover"));
+        order.setParking(request.getParameter("parking"));
+        order.setHeat(request.getParameter("heat"));
+        order.setWepay(request.getParameter("wepay"));
+        order.setBig(request.getParameter("big"));
+
+
+//        String[] dop = (request.getParameterValues("dop"));
+//        order.setDop(dop);
+
         order.setStartDate(convertStringToDate(request.getParameter("startDate")));
         order.setEndDate(convertStringToDate(request.getParameter("endDate")));
         order.setAddress(request.getParameter("address"));

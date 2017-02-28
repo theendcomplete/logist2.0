@@ -237,24 +237,24 @@
 
 
                 <div class="col-md-6 ">
-                    <label class="checkbox-inline" for="dop-0">
-                        <input type="checkbox" name="dop" id="dop-0" value="1">
+                    <label class="checkbox-inline" for="dover">
+                        <input type="checkbox" name="dover" id="dover" value="Доверенность">
                         Доверенность
                     </label>
-                    <label class="checkbox-inline" for="dop-1">
-                        <input type="checkbox" name="dop" id="dop-1" value="2">
+                    <label class="checkbox-inline" for="parking">
+                        <input type="checkbox" name="parking" id="parking" value="Платный въезд\парковка">
                         Платный въезд\парковка
                     </label>
-                    <label class="checkbox-inline" for="dop-2">
-                        <input type="checkbox" name="dop" id="dop-2" value="3">
+                    <label class="checkbox-inline" for="heat">
+                        <input type="checkbox" name="heat" id="heat" value="Теплом">
                         Отправлять теплом
                     </label>
-                    <label class="checkbox-inline" for="dop-3">
-                        <input type="checkbox" name="dop" id="dop-3" value="4">
+                    <label class="checkbox-inline" for="wepay">
+                        <input type="checkbox" name="wepay" id="wepay" value="За наш счёт">
                         Отправка за нас счёт
                     </label>
-                    <label class="checkbox-inline" for="dop-4">
-                        <input type="checkbox" name="dop" id="dop-4" value="5">
+                    <label class="checkbox-inline" for="big">
+                        <input type="checkbox" name="big" id="big" value="Габаритный груз">
                         Габаритный груз
                     </label>
                 </div>
