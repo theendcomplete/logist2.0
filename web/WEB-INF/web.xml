@@ -6,6 +6,16 @@
 
 
     <servlet>
+        <servlet-name>Logist</servlet-name>
+        <servlet-class>servlets.LogistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logist</servlet-name>
+        <url-pattern>/logist</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>servlets.LoginServlet</servlet-class>
     </servlet>

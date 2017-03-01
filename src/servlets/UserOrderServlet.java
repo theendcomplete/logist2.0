@@ -25,6 +25,10 @@ public class UserOrderServlet extends HttpServlet {
 
         if (request.getAttribute("user") != null) {
             user = (User) request.getAttribute("user");
+            if (user.getType().equals("logist")) {
+                request.setAttribute("logist", user);
+                request.getRequestDispatcher("/logist").forward(request, response);
+            }
         } else {
             if ((request.getParameter("login") != null) && (request.getParameter("password") != null)) {
                 String login = request.getParameter("login");

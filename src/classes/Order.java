@@ -14,6 +14,7 @@ public class Order {
     private byte[] image;
     private User user;
     private String cargo;
+    private String status;
     private String whom;
     private String sum;
 
@@ -198,5 +199,13 @@ public class Order {
 
     public void setBig(String big) {
         this.big = big;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

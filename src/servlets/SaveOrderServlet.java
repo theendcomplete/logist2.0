@@ -44,6 +44,7 @@ public class SaveOrderServlet extends HttpServlet {
         order.setTarget(request.getParameter("target"));
         order.setSum(request.getParameter("sum"));
         order.setCargo(request.getParameter("cargo"));
+        order.setStatus("new");
 
 
         order.setDover(request.getParameter("dover"));

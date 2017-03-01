@@ -5,6 +5,9 @@
   Time: 10:07
   To change this template use File | Settings | File Templates.
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="classes.Order" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -32,6 +35,27 @@
 <legend>
     <H1 class="text-center" style="margin: 30px 30px 30px 30px;">Список заявок</H1>
 </legend>
+<%--todo--%>
+
+<%--http://stackoverflow.com/questions/28295313/display-an-arraylist-on-a-jsp-page--%>
+<%
+    ArrayList<Order> orders = (ArrayList<Order>) request.getAttribute("orders");
+
+%>
+
+<% for (int i = 0; i < orders.size(); i++) {
+
+    Order order = orders.get(i);
+
+%>
+
+<br>
+
+<%=order.getStartDate().toString()%>
+
+<%
+    } //конец итерации
+%>
 
 
 </body>

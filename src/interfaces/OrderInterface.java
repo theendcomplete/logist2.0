@@ -16,6 +16,9 @@ public interface OrderInterface {
 
     Collection getAllOrders() throws SQLException;
 
+
+    Collection getOrdersByStatus(String status) throws SQLException;
+
     void deleteOrder(Order order) throws SQLException;
 
 //    public Collection getByDriver(Driver driver) throws SQLException;

@@ -1,10 +1,11 @@
 package implementations;
 
-import classes.Car;
 import classes.Order;
 import factories.HibernateUtil;
 import interfaces.OrderInterface;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class OrderInterfaceImplementation implements OrderInterface {
         List orders = new ArrayList<Order>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            orders = session.createCriteria(Car.class).list();
+            orders = session.createCriteria(Order.class).list();
         } catch (Exception e) {
             System.out.println("ошибка при получении списка заявок " + e);
         } finally {
@@ -72,6 +73,33 @@ public class OrderInterfaceImplementation implements OrderInterface {
             }
         }
         return orders;
+    }
+
+    @Override
+    public Collection getOrdersByStatus(String status) throws SQLException {
+
+
+        Session session = null;
+        List orders = new ArrayList<Order>();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Criteria orderCriteria = session.createCriteria(Order.class);
+
+            orderCriteria.add(Restrictions.eq("status", status));
+            orders = session.createCriteria(Order.class).list();
+            orders = orderCriteria.list();
+
+        } catch (Exception e) {
+            System.out.println("ошибка при поиске пользователя по логину и паролю  " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+
+        return orders;
+//        return null;
     }
 
     @Override
