@@ -16,6 +16,15 @@
 
 
     <servlet>
+        <servlet-name>SingleOrderServlet</servlet-name>
+        <servlet-class>servlets.SingleOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SingleOrderServlet</servlet-name>
+        <url-pattern>/single_order</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>servlets.LoginServlet</servlet-class>
     </servlet>

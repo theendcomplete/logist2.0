@@ -1,5 +1,6 @@
 package servlets;
 
+import classes.Order;
 import classes.User;
 import implementations.OrderInterfaceImplementation;
 
@@ -36,6 +37,7 @@ public class LogistServlet extends HttpServlet {
             logist = (User) request.getAttribute("logist");
             if (logist.getType().equals("logist")) {
                 Collection resultOrders = getOrdersByStatus("new");
+                request.setAttribute("logist", logist);
                 request.setAttribute("orders", resultOrders);
                 request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
             } else
@@ -54,6 +56,30 @@ public class LogistServlet extends HttpServlet {
         out.println("it works");
 
         out.println("logist");
+        User logist = new User();
+        if (request.getAttribute("logist") != null) {
+            logist = (User) request.getAttribute("logist");
+            if (request.getAttribute("order") != null) {
+                Order order = new Order();
+                OrderInterfaceImplementation orderInterfaceImplementation = new OrderInterfaceImplementation();
+                try {
+                    order = orderInterfaceImplementation.getOrderById((Long) request.getAttribute("order"));
+                    request.getRequestDispatcher("/order").forward(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+//            if (logist.getType().equals("logist")) {
+//                Collection resultOrders = getOrdersByStatus("new");
+//                request.setAttribute("logist", logist);
+//                request.setAttribute("orders", resultOrders);
+//                request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
+//            } else
+//                request.getRequestDispatcher("/order").forward(request, response);
+        }
+
+
         request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
 
     }
@@ -63,7 +89,7 @@ public class LogistServlet extends HttpServlet {
 
         OrderInterfaceImplementation orderInterfaceImplementation = new OrderInterfaceImplementation();
         try {
-            return orderInterfaceImplementation.getOrdersByStatus("new");
+            return orderInterfaceImplementation.getOrdersByStatus(status);
         } catch (SQLException e) {
             e.printStackTrace();
         }

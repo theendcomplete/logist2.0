@@ -11,6 +11,7 @@
         <property column="whom" name="whom" type="java.lang.String"/>
         <property column="target" name="target" type="java.lang.String"/>
         <property column="status" name="status" type="java.lang.String"/>
+        <property column="comment" name="comment" type="java.lang.String"/>
 
         <property column="dover" name="dover" type="java.lang.String"/>
         <property column="parking" name="parking" type="java.lang.String"/>
