@@ -128,7 +128,7 @@
                 <%=order.getDover().toString()%>
                 <%--<%=order.getHeat().toString()%>--%>
                 <%--<%=order.getWepay().toString()%>--%>
-                <%=order.getBig().toString()%>
+                <%=order.getBig()%>
                 <%=order.getParking().toString()%>
             </td>
         </tr>
