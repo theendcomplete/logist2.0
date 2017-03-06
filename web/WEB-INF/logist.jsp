@@ -65,6 +65,7 @@
 <div class="container">
     <h2>Список заявок</h2>
     <p>Список заявок со статусом "new"</p>
+    <p>Для изменения заявки достаточно кликнуть( по ней мышью</p>
     <table class="table table-striped">
         <thead>
         <tr>

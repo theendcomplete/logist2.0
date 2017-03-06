@@ -33,6 +33,9 @@ public class SingleOrderServlet extends HttpServlet {
             OrderInterfaceImplementation orderInterfaceImplementation = new OrderInterfaceImplementation();
             try {
                 order = orderInterfaceImplementation.getOrderById(id);
+                request.setAttribute("order", order);
+                request.getRequestDispatcher("/WEB-INF/SingleOrder.jsp").forward(request, response);
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
