@@ -34,10 +34,12 @@ public class LoginServlet extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.println("Найден " + user.getName() + " который " + user.getType());
             if (user.getType().equals("user")) {
-                request.setAttribute("user", user);
+//                request.setAttribute("user", user);
+                request.getSession().setAttribute("user", user);
                 request.getRequestDispatcher("/order").forward(request, response);
             } else if (user.getType().equals("logist")) {
-                request.setAttribute("logist", user);
+//                request.setAttribute("logist", user);
+                request.getSession().setAttribute("user", user);
                 request.getRequestDispatcher("/logist").forward(request, response);
             }
         }

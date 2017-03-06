@@ -71,11 +71,12 @@
 
     if (request.getAttribute("user") != null) {
         user = (User) request.getAttribute("user");
+        request.setAttribute("user", user);
     }
 
 
 %>
-
+<a href="/me">Личный кабинет</a>
 <%--<div class="container-narrow">--%>
 <div class="container theme-showcase" role="main">
 
