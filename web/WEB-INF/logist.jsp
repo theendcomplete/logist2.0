@@ -66,7 +66,7 @@
     <h2>Список заявок</h2>
     <p>Список заявок со статусом "new"</p>
     <p>Для изменения заявки достаточно кликнуть( по ней мышью</p>
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered table-hover">
         <thead>
         <tr>
             <th>id</th>
@@ -89,9 +89,21 @@
         %>
         <%--class="success"--%>
         <%--<tr>--%>
-        <tr class='clickable-row'
+
+        <% if (order.getStatus().equals("delegated")) {
+        %>
+        <tr class='clickable-row success'
             data-href="${pageContext.request.contextPath}/single_order?order=<%=orderId.toString()%>"
         >
+                <%
+                }
+                else {
+            %>
+        <tr class='clickable-row'
+            data-href="${pageContext.request.contextPath}/single_order?order=<%=orderId.toString()%>"
+        ><%
+            }
+        %>
             <%--id--%>
             <td>
                 <%=order.getOrder_ID().toString()%>

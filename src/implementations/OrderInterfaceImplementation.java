@@ -3,6 +3,7 @@ package implementations;
 import classes.Contact;
 import classes.Driver;
 import classes.Order;
+import classes.User;
 import factories.HibernateUtil;
 import interfaces.OrderInterface;
 import org.hibernate.Criteria;
@@ -52,6 +53,7 @@ public class OrderInterfaceImplementation implements OrderInterface {
             order = session.load(Order.class, id);
             Contact contact = order.getContact();
             Driver driver = order.getDriver();
+            User user = order.getUser();
 
         } catch (Exception e) {
             System.out.println("ошибка при поиске заявки по айди " + e);

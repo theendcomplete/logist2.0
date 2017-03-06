@@ -69,9 +69,8 @@
 //    user.setLogin("anonimous");
     user.setName("");
 
-    if (request.getAttribute("user") != null) {
-        user = (User) request.getAttribute("user");
-        request.setAttribute("user", user);
+    if (request.getSession().getAttribute("user") != null) {
+        user = (User) request.getSession().getAttribute("user");
     }
 
 

@@ -23,8 +23,8 @@ public class UserOrderServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        if (request.getAttribute("user") != null) {
-            user = (User) request.getAttribute("user");
+        if (request.getSession().getAttribute("user") != null) {
+            user = (User) request.getSession().getAttribute("user");
             if (user.getType().equals("logist")) {
                 request.setAttribute("logist", user);
                 request.getRequestDispatcher("/logist").forward(request, response);
@@ -43,7 +43,8 @@ public class UserOrderServlet extends HttpServlet {
 
                 if (userChecked != null)
                     user = userChecked;
-                request.setAttribute("user", userChecked);
+//                request.setAttribute("user", userChecked);
+                request.getSession().setAttribute("user", userChecked);
 
             }
         }

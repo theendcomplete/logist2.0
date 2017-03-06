@@ -41,25 +41,106 @@
 <div class="container">
     <h2>изменить заявку</h2>
     <%--<p>Список заявок со статусом "new"</p>--%>
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered table-hover">
         <thead>
-        <tr>
-            <th>id</th>
-            <th>Заказал</th>
-            <th>Адрес</th>
-            <th>С</th>
-            <th>По</th>
-            <th>О грузе</th>
-            <th>Комментарий</th>
-            <th>Статус</th>
-            <th>Кнопка</th>
-        </tr>
+        <th>Поле</th>
+        <th>В заявке</th>
+        <th>Изменить на</th>
+
+        </th>
         </thead>
         <tbody>
         <tr>
             <%--id--%>
+            <td class="alert-success">
+                ID
+            </td>
             <td>
                 <%=order.getOrder_ID().toString()%>
+            </td>
+            <td>
+                <%--<%=order.getOrder_ID().toString()%>--%>
+            </td>
+        </tr>
+        <tr>
+            <td class="alert-success">
+                Адрес
+            </td>
+            <td>
+                <%=order.getAddress().toString()%>
+            </td>
+            <td>
+                <%--<%=order.getOrder_ID().toString()%>--%>
+            </td>
+        </tr>
+        <tr>
+            <td class="alert-success">
+                Цель поездки
+            </td>
+            <td>
+                <%=order.getTarget().toString()%>
+            </td>
+            <td>
+                <%--<%=order.getOrder_ID().toString()%>--%>
+            </td>
+        </tr>
+        <tr>
+            <td class="alert-success">
+                С/По
+            </td>
+            <td>
+                <%=order.getStartDate().toString()%>/
+                <%--</td>--%>
+                <%--<td>--%>
+                <%=order.getEndDate().toString()%>
+            </td>
+        </tr>
+        <tr>
+            <td class="alert-success">
+                Статус
+            </td>
+            <td>
+                <%=order.getStatus().toString()%>
+            </td>
+            <td>
+                <%--<%=order.getOrder_ID().toString()%>--%>
+            </td>
+        </tr>
+        <tr>
+            <td class="alert-success">
+                Кто заказал
+            </td>
+            <td>
+                <%--<%=order.getUser().getN?ame().toString()%>--%>
+            </td>
+            <td>
+                <%--<%=order.getOrder_ID().toString()%>--%>
+            </td>
+        </tr>
+        <tr>
+            <td class="alert-success">
+                Сумма
+            </td>
+            <td>
+                <%=order.getSum().toString()%>
+            </td>
+            <td>
+                <%=order.getDover().toString()%>
+                <%--<%=order.getHeat().toString()%>--%>
+                <%--<%=order.getWepay().toString()%>--%>
+                <%=order.getBig().toString()%>
+                <%=order.getParking().toString()%>
+            </td>
+        </tr>
+        <tr>
+            <td class="alert-success">
+                ID
+            </td>
+            <td>
+                <%--<%=order.getOrder_ID().toString()%>--%>
+            </td>
+            <td>
+                <%--<%=order.getOrder_ID().toString()%>--%>
             </td>
         </tr>
         </tbody>

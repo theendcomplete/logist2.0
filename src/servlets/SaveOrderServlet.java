@@ -39,7 +39,7 @@ public class SaveOrderServlet extends HttpServlet {
 
         Order order = new Order();
         order.setAddress(request.getParameter("address"));
-        order.setUser((User) request.getAttribute("user"));
+//        order.setUser((User) request.getAttribute("user"));
         order.setWhom(request.getParameter("whom"));
         order.setTarget(request.getParameter("target"));
         order.setSum(request.getParameter("sum"));
@@ -54,8 +54,7 @@ public class SaveOrderServlet extends HttpServlet {
         order.setBig(request.getParameter("big"));
 
 
-//        String[] dop = (request.getParameterValues("dop"));
-//        order.setDop(dop);
+        order.setUser((User) request.getSession().getAttribute("user"));
 
         order.setStartDate(convertStringToDate(request.getParameter("startDate")));
         order.setEndDate(convertStringToDate(request.getParameter("endDate")));

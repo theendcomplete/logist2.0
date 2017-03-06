@@ -36,7 +36,9 @@ public class LogistServlet extends HttpServlet {
         if (request.getSession().getAttribute("user") != null) {
             logist = (User) request.getSession().getAttribute("user");
             if (logist.getType().equals("logist")) {
+//                Collection resultOrders = getOrdersByStatus("new");
                 Collection resultOrders = getOrdersByStatus("new");
+                resultOrders.addAll(getOrdersByStatus("delegated"));
 //                request.setAttribute("logist", logist);
 //                request.getSession().setAttribute("user", logist);
                 request.setAttribute("orders", resultOrders);
@@ -71,13 +73,6 @@ public class LogistServlet extends HttpServlet {
                 }
 
             }
-//            if (logist.getType().equals("logist")) {
-//                Collection resultOrders = getOrdersByStatus("new");
-//                request.setAttribute("logist", logist);
-//                request.setAttribute("orders", resultOrders);
-//                request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
-//            } else
-//                request.getRequestDispatcher("/order").forward(request, response);
         }
 
 

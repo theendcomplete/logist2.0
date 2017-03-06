@@ -1,7 +1,5 @@
 package servlets;
 
-import classes.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,10 +15,10 @@ public class MyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        User user = new User();
-        if (request.getAttribute("user") != null) {
-            user = (User) request.getAttribute("user");
-            request.setAttribute("user", user);
+//        User user = new User();
+        if (request.getSession().getAttribute("user") != null) {
+//            user = (User) request.getAttribute("user");
+//            request.setAttribute("user", user);
             request.getRequestDispatcher("/WEB-INF/lk.jsp").forward(request, response);
         } else
             request.getRequestDispatcher("/login").forward(request, response);
@@ -31,10 +29,10 @@ public class MyServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        User user = new User();
-        if (request.getAttribute("user") != null) {
-            user = (User) request.getAttribute("user");
-            request.setAttribute("user", user);
+//        User user = new User();
+        if (request.getSession().getAttribute("user") != null) {
+//            user = (User) request.getSession().getAttribute("user");
+//            request.setAttribute("user", user);
             request.getRequestDispatcher("/WEB-INF/lk.jsp").forward(request, response);
         } else
             request.getRequestDispatcher("/login").forward(request, response);
