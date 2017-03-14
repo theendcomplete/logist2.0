@@ -27,7 +27,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 </head>
 <body>
-<form class="form-horizontal" action="/createUser" method="POST" role="form">
+<form class="form-horizontal" action="${pageContext.request.contextPath}/createUser" method="POST" role="form">
     <fieldset>
 
         <!-- Form Name -->

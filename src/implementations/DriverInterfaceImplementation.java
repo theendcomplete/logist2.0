@@ -46,7 +46,6 @@ public class DriverInterfaceImplementation implements DriverInterface {
             driver = session.load(Driver.class, id);
             driver.getCar();
 
-
         } catch (Exception e) {
             System.out.println("ошибка при поиске водителя по айди" + e);
         } finally {

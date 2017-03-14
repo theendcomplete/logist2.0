@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.UUID;
 
 /**
  * Created by theendcomplete on 14.02.2017.
@@ -60,6 +61,9 @@ public class CreateUserServlet extends HttpServlet {
         user.setEmail(request.getParameter("email"));
         user.setPassword(String.valueOf((request.getParameter("password")).hashCode()));
         user.setType("user");
+//        UUID uuid = ;
+//        String randomUUIDString = uuid.toString();
+        user.setPin(UUID.randomUUID().toString());
         int hash = user.getPassword().hashCode();
         UserInterfaceImplementation userInterfaceImplementation = new UserInterfaceImplementation();
         try {

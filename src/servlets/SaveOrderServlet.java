@@ -1,10 +1,13 @@
 package servlets;
 
 import classes.Contact;
+import classes.Driver;
 import classes.Order;
 import classes.User;
 import implementations.ContactInterfaceImplementation;
+import implementations.DriverInterfaceImplementation;
 import implementations.OrderInterfaceImplementation;
+import implementations.UserInterfaceImplementation;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.UUID;
 
 //import java.time.format.DateTimeFormatter;
 
@@ -53,8 +57,42 @@ public class SaveOrderServlet extends HttpServlet {
         order.setWepay(request.getParameter("wepay"));
         order.setBig(request.getParameter("big"));
 
+        if (request.getSession().getAttribute("user") != null) {
+            order.setUser((User) request.getSession().getAttribute("user"));
+        } else {
 
-        order.setUser((User) request.getSession().getAttribute("user"));
+            User user = null;
+            user.setName(request.getParameter("name"));
+
+            UserInterfaceImplementation userInterfaceImplementation = new UserInterfaceImplementation();
+            try {
+                user = userInterfaceImplementation.getUserByName(user.getName());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            if (user == null) {
+                user.setName(request.getParameter("name"));
+                user.setPin(UUID.randomUUID().toString());
+
+                try {
+                    userInterfaceImplementation.addUser(user);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            order.setUser(user);
+
+        }
+
+        DriverInterfaceImplementation driverInterfaceImplementation = new DriverInterfaceImplementation();
+        try {
+            Driver noOne = driverInterfaceImplementation.getDriverById(5L);
+            order.setDriver(noOne);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
         order.setStartDate(convertStringToDate(request.getParameter("startDate")));
         order.setEndDate(convertStringToDate(request.getParameter("endDate")));
@@ -76,6 +114,7 @@ public class SaveOrderServlet extends HttpServlet {
         OrderInterfaceImplementation orderInterfaceImplementation = new OrderInterfaceImplementation();
         try {
             orderInterfaceImplementation.addOrder(order);
+            request.getRequestDispatcher("/WEB-INF/success.html").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

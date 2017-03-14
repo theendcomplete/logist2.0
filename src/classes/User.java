@@ -6,6 +6,7 @@ public class User {
     private Long user_ID;
     private String name;
     private String login;
+    private String pin;
     private String phone;
     private String password;
     private String email;
@@ -13,6 +14,14 @@ public class User {
     private Collection<Order> orders;
 
     public User() {
+    }
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
     }
 
     public Long getUser_ID() {

@@ -42,6 +42,12 @@ public class Order {
     }
 
     public String getComment() {
+
+        if (this.comment == null) {
+            comment = "";
+        }
+
+
         return comment;
     }
 
@@ -166,10 +172,22 @@ public class Order {
     }
 
     public void setDover(String dover) {
+
+
+        if (this.dover == null) {
+            dover = "";
+        }
+
         this.dover = dover;
     }
 
     public String getParking() {
+
+
+        if (this.parking == null) {
+            parking = "";
+        }
+
         return parking;
     }
 
@@ -178,6 +196,13 @@ public class Order {
     }
 
     public String getHeat() {
+
+
+        if (this.heat == null) {
+            heat = "";
+        }
+
+
         return heat;
     }
 
@@ -190,10 +215,22 @@ public class Order {
     }
 
     public void setWepay(String wepay) {
+
+
+        if (this.wepay == null) {
+            wepay = "";
+        }
+
         this.wepay = wepay;
     }
 
     public String getBig() {
+
+
+        if (this.big == null) {
+            big = "";
+        }
+
         return big;
     }
 

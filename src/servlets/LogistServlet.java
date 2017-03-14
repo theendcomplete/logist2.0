@@ -59,9 +59,9 @@ public class LogistServlet extends HttpServlet {
         out.println("it works");
 
         out.println("logist");
-        User logist = new User();
+//        User logist = new User();
         if (request.getSession().getAttribute("user") != null) {
-            logist = (User) request.getSession().getAttribute("user");
+//            logist = (User) request.getSession().getAttribute("user");
             if (request.getAttribute("order") != null) {
                 Order order = new Order();
                 OrderInterfaceImplementation orderInterfaceImplementation = new OrderInterfaceImplementation();
@@ -75,11 +75,9 @@ public class LogistServlet extends HttpServlet {
             }
         }
 
-
         request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
 
     }
-
 
     private Collection getOrdersByStatus(String status) {
 

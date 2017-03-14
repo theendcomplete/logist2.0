@@ -11,6 +11,7 @@
         <property column="login" name="login" type="java.lang.String"/>
         <property column="password" name="password" type="java.lang.String"/>
         <property column="email" name="email" type="java.lang.String"/>
+        <property column="pin" name="pin" type="java.lang.String"/>
         <property column="type" name="type" type="java.lang.String"/>
         <set name="orders" cascade="all" lazy="false" inverse="true">
             <key/>

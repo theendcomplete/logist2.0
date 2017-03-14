@@ -75,7 +75,11 @@
 
 
 %>
-<a href="/me">Личный кабинет</a>
+<div class="text-right">
+    <a href="/me"><%=user.getName()%>, История заявок
+    </a>
+</div>
+
 <%--<div class="container-narrow">--%>
 <div class="container theme-showcase" role="main">
 
@@ -229,12 +233,10 @@
             <%--</div>--%>
             <%--</div>--%>
 
-
             <!-- Multiple Checkboxes (inline) -->
             <div class="form-group">
                 <%--<label class="col-md-4 control-label" for="dop">Дополнительно</label>--%>
                 <label class="col-md-4 control-label">Дополнительно</label>
-
 
                 <div class="col-md-6 ">
                     <label class="checkbox-inline" for="dover">
@@ -260,7 +262,6 @@
                 </div>
             </div>
 
-
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="contact_name">Контактное лицо:</label>
@@ -281,7 +282,6 @@
                     <span class="help-block">Куда звонить, если что?</span>
                 </div>
             </div>
-
 
             <!-- Textarea -->
             <div class="form-group">
