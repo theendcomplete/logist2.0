@@ -2,6 +2,7 @@ package interfaces;
 
 
 import classes.Order;
+import classes.User;
 
 import java.sql.SQLException;
 import java.util.Collection;
@@ -18,6 +19,8 @@ public interface OrderInterface {
 
 
     Collection getOrdersByStatus(String status) throws SQLException;
+
+    Collection getOrdersByUser(User user) throws SQLException;
 
     void deleteOrder(Order order) throws SQLException;
 

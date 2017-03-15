@@ -43,6 +43,10 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("/logist").forward(request, response);
             }
         }
+        if (request.getAttribute("action").equals("lk")) {
+            PrintWriter out = response.getWriter();
+            out.println("LK");
+        }
 
 
     }
@@ -64,6 +68,8 @@ public class LoginServlet extends HttpServlet {
         if (request.getSession().getAttribute("user") != null) {
 
             request.getRequestDispatcher("/order").forward(request, response);
+        } else if (request.getAttribute("action").equals("lk")) {
+            request.getRequestDispatcher("historyLogin.jsp").forward(request, response);
         } else
             request.getRequestDispatcher("login.jsp").forward(request, response);
 

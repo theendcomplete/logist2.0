@@ -29,15 +29,15 @@
 <body>
 
 
-<form id="login-form" action="/login" method="POST" role="form" class="form-horizontal">
+<form id="login-form" action="${pageContext.request.contextPath}/me" method="POST" role="form" class="form-horizontal">
     <legend>
         <H1 class="text-center" style="margin: 30px 30px 30px 30px;">Пожалуйста, представьтесь</H1>
     </legend>
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="login">Имя, на которое были сделаны заявки</label>
+        <label class="col-md-4 control-label" for="name">Имя, на которое были сделаны заявки</label>
         <div class="col-md-4">
-            <input id="login" name="login" type="text" placeholder="например, Василий Колбасилий"
+            <input id="name" name="name" type="text" placeholder="например, Василий Колбасилий"
                    class="form-control input-md" required="">
 
             <%--<span class="help-block">Нет логина? Жмите сюда -  <a href="/register.jsp">у меня нет логина</a></span>--%>
@@ -69,7 +69,7 @@
 
     </fieldset>
 </form>
-<a href="/order" class="btn btn-block" align="center">Заказать без логина</a>
+<%--<a href="/order" class="btn btn-block" align="center">Заказать без логина</a>--%>
 <%--<a href="/order" button id="register" name="register" class="btn btn-block" align="center">у меня нет логина</a>--%>
 
 </div> <!-- /container -->

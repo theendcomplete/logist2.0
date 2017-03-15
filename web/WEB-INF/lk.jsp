@@ -71,7 +71,7 @@
 
 %>
 
-<%=order.getStartDate().toString()%>
+<%--<%=order.getStartDate().toString()%>--%>
 </div> <!-- /container -->
 
 

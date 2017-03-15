@@ -104,10 +104,32 @@ public class OrderInterfaceImplementation implements OrderInterface {
             }
         }
 
-
         return orders;
 //        return null;
     }
+
+    @Override
+    public Collection getOrdersByUser(User user) throws SQLException {
+        Session session = null;
+        List orders = new ArrayList<Order>();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Criteria orderCriteria = session.createCriteria(Order.class);
+
+            orderCriteria.add(Restrictions.eq("user", user));
+            orders = session.createCriteria(Order.class).list();
+            orders = orderCriteria.list();
+        } catch (Exception e) {
+            System.out.println("ошибка при получении списка заявок " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return orders;
+    }
+
+
 
     @Override
     public void deleteOrder(Order order) throws SQLException {

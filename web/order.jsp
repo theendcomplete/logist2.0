@@ -76,7 +76,7 @@
 
 %>
 <div class="text-right">
-    <a href="/me"><%=user.getName()%>, История заявок
+    <a href="${pageContext.request.contextPath}/me"><%=user.getName()%>, История заявок
     </a>
 </div>
 
