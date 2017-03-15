@@ -124,7 +124,17 @@
 
         <%
                 }//конец итерации
-            } //конец if'a
+        } else {%>
+        <div class="container">
+            <div class="text-center" style="margin: 30px 30px 30px 30px;">
+                <H1> Нет активных заявок :(</H1>
+            </div>
+            <div class="image" align="center">
+                <!--<img src="../resources/pict/success.jpg" height="453" width="604"/></div>-->
+                <img src="${pageContext.request.contextPath}/resources/pict/noorders.jpg" height="453" width="604"/>
+            </div>
+        </div>
+        <% }//конец if'a
         %>
 
         </tbody>
