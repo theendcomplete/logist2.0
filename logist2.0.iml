@@ -35,7 +35,6 @@
     <orderEntry type="library" exported="" name="mysql-connector-java-5.1.27" level="project" />
     <orderEntry type="library" exported="" name="taglibs-standard-impl-1.2.5" level="project" />
     <orderEntry type="library" exported="" name="bootstrap" level="application" />
-    <orderEntry type="library" exported="" name="jquery-3.1.1" level="application" />
     <orderEntry type="library" exported="" name="jquery" level="application" />
     <orderEntry type="library" exported="" name="bootstrap-datetimepicker" level="application" />
   </component>
