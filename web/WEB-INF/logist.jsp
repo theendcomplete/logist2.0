@@ -65,7 +65,7 @@
 <div class="container">
     <h2>Список заявок</h2>
     <p>Список заявок со статусом "new"</p>
-    <p>Для изменения заявки достаточно кликнуть( по ней мышью</p>
+    <p>Для изменения заявки достаточно кликнуть по ней мышью</p>
     <table class="table table-striped table-bordered table-hover">
         <thead>
         <tr>
@@ -87,8 +87,6 @@
                 Order order = orders.get(i);
                 Long orderId = order.getOrder_ID();
         %>
-        <%--class="success"--%>
-        <%--<tr>--%>
 
         <% if (order.getStatus().equals("delegated")) {
         %>

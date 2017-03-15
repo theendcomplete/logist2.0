@@ -38,7 +38,7 @@ public class MyServlet extends HttpServlet {
 
         } else {
             request.setAttribute("action", "lk");
-            request.getRequestDispatcher("/historyLogin.jsp.jsp").forward(request, response);
+            request.getRequestDispatcher("/historyLogin.jsp").forward(request, response);
         }
 
     }

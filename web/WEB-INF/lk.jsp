@@ -1,4 +1,6 @@
+<%@ page import="classes.Order" %>
 <%@ page import="classes.User" %>
+<%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
   User: theendcomplete
@@ -32,13 +34,19 @@
 
 <%
     User user = new User();
-    if (request.getAttribute("user") != null) {
-        user = (User) request.getAttribute("user");
+    if ((request.getSession().getAttribute("user") != null)) {
+        user = (User) (request.getSession().getAttribute("user"));
+
+        ArrayList<Order> orders = new ArrayList();
+        if (request.getAttribute("orders") != null) {
+            orders = (ArrayList<Order>) request.getAttribute("orders");
+        }
+
 %>
 
 
 <div class="container">
-    <h2>Здесь можно просмотреть ваши данные</h2>
+    <h2>Список ваших заявок</h2>
     <%--<p>Список заявок со статусом "new"</p>--%>
     <table class="table table-striped">
         <thead>
@@ -51,19 +59,78 @@
             <th>О грузе</th>
             <th>Комментарий</th>
             <th>Статус</th>
-            <th>Кнопка</th>
+            <th>Водитель</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
+
+        <% if (orders.size() > 0) {
+            for (int i = 0; i < orders.size(); i++) {
+                Order order = orders.get(i);
+                Long orderId = order.getOrder_ID();
+        %>
+
+        <% if (order.getStatus().equals("delegated")) {
+        %>
+        <tr class='clickable-row success'
+            data-href="${pageContext.request.contextPath}/single_order?order=<%=orderId.toString()%>"
+        >
+                <%
+                }
+                else {
+            %>
+        <tr class='clickable-row'
+            data-href="${pageContext.request.contextPath}/single_order?order=<%=orderId.toString()%>"
+        ><%
+            }
+        %>
             <%--id--%>
             <td>
-                <%=user.getLogin().toString()%>
+                <%=order.getOrder_ID().toString()%>
+            </td>
+            <%--Заказал--%>
+            <td>
+                <%--<%=order.getUser().toString()%>--%>
+            </td>
+            <%--Адрес--%>
+            <td>
+                <%=order.getAddress()%>
+            </td>
+            <%--С--%>
+            <td>
+                <%=order.getStartDate().toString()%>
+            </td>
+            <%--По--%>
+            <td>
+                <%=order.getEndDate().toString()%>
+            </td>
+            <%--О грузе--%>
+            <td>
+                <%=order.getCargo()%>
+            </td>
+            <%--Комментарий--%>
+            <td>
+                <%=order.getComment()%>
+            </td>
+            <%--Статус--%>
+            <td>
+                <%=order.getStatus()%>
+            </td>
+            <%--водитель--%>
+            <td>
+                <%=order.getDriver().getName()%>
             </td>
         </tr>
+
+        <%
+                }//конец итерации
+            } //конец if'a
+        %>
+
         </tbody>
     </table>
 </div>
+
 
 <%
     }
