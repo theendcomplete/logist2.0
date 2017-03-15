@@ -61,7 +61,7 @@ public class SaveOrderServlet extends HttpServlet {
             order.setUser((User) request.getSession().getAttribute("user"));
         } else {
 
-            User user = null;
+            User user = new User();
             user.setName(request.getParameter("name"));
 
             UserInterfaceImplementation userInterfaceImplementation = new UserInterfaceImplementation();
@@ -72,6 +72,7 @@ public class SaveOrderServlet extends HttpServlet {
             }
 
             if (user == null) {
+                user = new User();
                 user.setName(request.getParameter("name"));
                 user.setPin(UUID.randomUUID().toString());
 

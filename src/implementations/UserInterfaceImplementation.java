@@ -62,7 +62,10 @@ public class UserInterfaceImplementation implements UserInterface {
         User user = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            user = session.load(User.class, name);
+            Criteria userCriteria = session.createCriteria(User.class);
+            userCriteria.add(Restrictions.eq("name", name));
+
+            user = (User) userCriteria.uniqueResult();
         } catch (Exception e) {
             System.out.println("ошибка при поиске пользователя по имени  " + e);
         } finally {
