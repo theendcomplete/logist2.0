@@ -31,10 +31,14 @@ public class MyServlet extends HttpServlet {
         if (request.getParameter("name") != null) {
             User user = findUserByName(request.getParameter("name"));
             request.getSession().setAttribute("user", user);
-            Collection resultOrders = getOrdersByUser(user);
-            request.setAttribute("orders", resultOrders);
-            request.getRequestDispatcher("/WEB-INF/lk.jsp").forward(request, response);
-
+            if (user != null) {
+                Collection resultOrders = getOrdersByUser(user);
+                request.setAttribute("orders", resultOrders);
+                request.getRequestDispatcher("/WEB-INF/lk.jsp").forward(request, response);
+            } else {
+//                request.setAttribute("orders", resultOrders);
+                request.getRequestDispatcher("/historyLogin.jsp").forward(request, response);
+            }
 
         } else {
             request.setAttribute("action", "lk");
@@ -52,7 +56,15 @@ public class MyServlet extends HttpServlet {
             Collection resultOrders = getOrdersByUser(user);
             request.setAttribute("orders", resultOrders);
             request.getRequestDispatcher("/WEB-INF/lk.jsp").forward(request, response);
-        } else {
+        }
+//        if (request.getParameter("name") != null) {
+//            User user = findUserByName(request.getParameter("name"));
+//            request.getSession().setAttribute("user", user);
+//            Collection resultOrders = getOrdersByUser(user);
+//            request.setAttribute("orders", resultOrders);
+//            request.getRequestDispatcher("/WEB-INF/lk.jsp").forward(request, response);
+//        }
+        else {
             request.setAttribute("action", "lk");
             request.getRequestDispatcher("/historyLogin.jsp").forward(request, response);
         }

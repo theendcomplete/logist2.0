@@ -49,6 +49,10 @@
     <h2>Список ваших заявок</h2>
     <%--<p>Список заявок со статусом "new"</p>--%>
     <table class="table table-striped">
+
+
+        <% if (orders.size() > 0) {
+        %>
         <thead>
         <tr>
             <th>id</th>
@@ -63,8 +67,8 @@
         </tr>
         </thead>
         <tbody>
+        <%
 
-        <% if (orders.size() > 0) {
             for (int i = 0; i < orders.size(); i++) {
                 Order order = orders.get(i);
                 Long orderId = order.getOrder_ID();
@@ -123,7 +127,7 @@
         </tr>
 
         <%
-                }//конец итерации
+            }//конец итерации
         } else {%>
         <div class="container">
             <div class="text-center" style="margin: 30px 30px 30px 30px;">
@@ -144,6 +148,18 @@
 
 <%
     }
+
+%>
+<%--<div class="container">--%>
+<%--<div class="text-center" style="margin: 30px 30px 30px 30px;">--%>
+<%--<H1> Нет активных заявок :(</H1>--%>
+<%--</div>--%>
+<%--<div class="image" align="center">--%>
+<%--<!--<img src="../resources/pict/success.jpg" height="453" width="604"/></div>-->--%>
+<%--<img src="${pageContext.request.contextPath}/resources/pict/noorders.jpg" height="422" width="600"/>--%>
+<%--</div>--%>
+<%--</div>--%>
+<%
 
 
 %>
