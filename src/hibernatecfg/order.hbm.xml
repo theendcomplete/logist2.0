@@ -22,6 +22,7 @@
 
         <property column="startDate" name="startDate" type="java.util.Date"/>
         <property column="endDate" name="endDate" type="java.util.Date"/>
+        <property column="workDate" name="workDate" type="java.util.Date"/>
         <property column="image" name="image" type="binary"/>
         <many-to-one name="user" lazy="false" class="classes.User"/>
         <many-to-one name="contractor" cascade="all" class="classes.Contractor"/>

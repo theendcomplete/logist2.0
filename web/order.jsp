@@ -117,9 +117,9 @@
                 <label class="col-md-4 control-label" for="target">Цель транспортировки</label>
                 <div class="col-md-4">
                     <select id="target" name="target" class="form-control">
-                        <option value="1">Доставить что-то</option>
-                        <option value="2">Забрать что-то</option>
-                        <option value="3">Другое</option>
+                        <option value="Доставить">Доставить что-то</option>
+                        <option value="Забрать">Забрать что-то</option>
+                        <option value="Другое">Другое</option>
                     </select>
                     <span class="help-block">Зачем нужна машина?</span>
                 </div>

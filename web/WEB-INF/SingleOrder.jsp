@@ -1,4 +1,5 @@
-<%@ page import="classes.Order" %><%--
+<%@ page import="classes.Order" %>
+<%--
   Created by IntelliJ IDEA.
   User: theendcomplete
   Date: 14.02.2017
@@ -42,138 +43,176 @@
 <div class="container">
     <h2>Изменить заявку</h2>
     <%--<p>Список заявок со статусом "new"</p>--%>
-    <table class="table table-striped table-bordered table-hover">
-        <thead>
-        <th>Поле</th>
-        <th>В заявке</th>
-        <th>Изменить на</th>
 
-        </thead>
-        <tbody>
-        <tr>
-            <%--id--%>
-            <td class="alert-success">
-                ID
-            </td>
-            <td>
-                <%=order.getOrder_ID().toString()%>
-            </td>
-            <td>
-                <%--<%=order.getOrder_ID().toString()%>--%>
-            </td>
-        </tr>
-        <tr>
-            <td class="alert-success">
-                Адрес
-            </td>
-            <td>
-                <%=order.getAddress()%>
-            </td>
-            <td>
-                <%--<%=order.getOrder_ID().toString()%>--%>
-            </td>
-        </tr>
-        <tr>
-            <td class="alert-success">
-                Цель поездки
-            </td>
-            <td>
-                <%=order.getTarget()%>
-            </td>
-            <td>
-                <%--<%=order.getOrder_ID().toString()%>--%>
-            </td>
-        </tr>
-        <tr>
-            <td class="alert-success">
-                С/По
-            </td>
-            <td>
-                <%=order.getStartDate().toString()%>/
-                <%--</td>--%>
-                <%--<td>--%>
-                <%=order.getEndDate().toString()%>
-            </td>
-            <td>
+    <form class="form-horizontal" method="POST" action="${pageContext.request.contextPath}/saveOrder?action=logist">
+        <fieldset>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <th>Поле</th>
+                <th>В заявке</th>
+                <th>Изменить на</th>
 
-            </td>
-        </tr>
-        <tr>
-            <td class="alert-success">
-                Статус
-            </td>
-            <td>
-                <%=order.getStatus()%>
-            </td>
-            <td>
-                <%--<%=order.getOrder_ID().toString()%>--%>
-            </td>
-        </tr>
-        <tr>
-            <td class="alert-success">
-                Кто заказал
-            </td>
-            <td>
-                <%=order.getUser().getName().toString()%>
-            </td>
-            <td>
-                <%--<%=order.getOrder_ID().toString()%>--%>
-            </td>
-        </tr>
-        <tr>
-            <td class="alert-success">
-                Сумма
-            </td>
-            <td>
-                <%=order.getSum()%>
-            </td>
-            <td>
-                <p>
-                    <%=order.getDover()%>
-                </p>
-                <p>
-                    <%=order.getHeat()%>
-                </p>
-                <p>
-                    <%=order.getWepay()%>
-                </p>
-                <p>
-                    <%=order.getBig()%>
-                </p>
-                <p>
-                    <%=order.getParking()%>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td class="alert-success">
-                Водитель
-            </td>
-            <td>
-                <%=order.getDriver().getName()%>
-            </td>
-            <td>
+                </thead>
+                <tbody>
+                <tr>
+                    <%--id--%>
+                    <td class="row alert-success">
+                        ID
+                    </td>
+                    <td>
+                        <%=order.getOrder_ID().toString()%>
+                    </td>
+                    <td class="row">
+                        <%--<%=order.getOrder_ID().toString()%>--%>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row alert-success">
+                        Адрес
+                    </td>
+                    <td class="row">
+                        <%=order.getAddress()%>
+                    </td>
+                    <td class="row">
+                        <%--<%=order.getOrder_ID().toString()%>--%>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row alert-success">
+                        Цель поездки
+                    </td>
+                    <td>
+                        <%=order.getTarget()%>
+                    </td>
+                    <td>
+                        <%--<%=order.getOrder_ID().toString()%>--%>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alert-success">
+                        С/По
+                    </td>
+                    <td>
+                        <%=order.getStartDate().toString()%>/
+                        <%--</td>--%>
+                        <%--<td>--%>
+                        <%=order.getEndDate().toString()%>
+                    </td>
+                    <td class="row">
+                        <div class='col-md-9'>
+                            <div class="form-group">
+                                <div class='input-group date ' name='workDate' id='workDate' required="true">
+                                    <input type='text' class="form-control" name='workDate'/>
+                                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label for="driver">Select list:</label>
-                    <select class="form-control" id="driver">
-                        <option>Андрей</option>
-                        <option>Владимир</option>
-                        <option>Евгений</option>
-                        <option>Николай</option>
-                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row alert-success">
+                        Статус
+                    </td>
+                    <td>
+                        <%=order.getStatus()%>
+                    </td>
+                    <td class="row">
+                        <div class='col-md-9'>
+
+                            <div class="form-group">
+                                <label for="status">Установить статус:</label>
+                                <select class="form-control" name="status" id="status">
+                                    <option>В работе</option>
+                                    <option>Готово</option>
+                                    <option>Новая</option>
+                                    <option>Отменена</option>
+                                </select>
+                            </div>
+                        </div>
+                        <%--<%=order.getOrder_ID().toString()%>--%>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row alert-success">
+                        Кто заказал
+                    </td>
+                    <td>
+                        <%=order.getUser().getName().toString()%>
+                    </td>
+                    <td>
+                        <%--<%=order.getOrder_ID().toString()%>--%>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row alert-success">
+                        Сумма
+                    </td>
+                    <td>
+                        <%=order.getSum()%>
+                    </td>
+                    <td class="row">
+                        <div class='col-md-9'>
+                            <p>
+                                <%=order.getDover()%>
+                            </p>
+                            <p>
+                                <%=order.getHeat()%>
+                            </p>
+                            <p>
+                                <%=order.getWepay()%>
+                            </p>
+                            <p>
+                                <%=order.getBig()%>
+                            </p>
+                            <p>
+                                <%=order.getParking()%>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row alert-success">
+                        Водитель
+                    </td>
+                    <td>
+                        <%=order.getDriver().getName()%>
+                    </td>
+                    <td class="row">
+                        <div class='col-md-9'>
+                            <div class="form-group">
+                                <label for="driver">Кто поедет:</label>
+                                <select class="form-control" name="driver" id="driver">
+                                    <option value="1">Андрей Шишкин</option>
+                                    <option value="3">Владимир Зотов</option>
+                                    <option value="2">Евгений Савин</option>
+                                    <option value="4">Константин Мациборко</option>
+                                    <option value="6">Николай</option>
+                                    <option value="7">Сергей Ходов</option>
+                                </select>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <input type="hidden" name="id" value="<%=order.getOrder_ID()%>">
+
+            <div class="form-group">
+                <%--<label class="col-md-4 control-label" for="confirm">Отправить заявку</label>--%>
+                <label class="col-md-4 control-label" for="confirm"></label>
+                <div class="col-md-4">
+                    <button id="confirm" name="confirm" class="btn btn-primary">Сохранить</button>
                 </div>
-                <%--<select name="driver">--%>
-                <%--<option value="Андрей">Андрей</option>--%>
-                <%--<option value="Владимир">Владимир</option>--%>
-                <%--<option value="Евгений">Евгений</option>--%>
-                <%--<option value="Сергей">Сергей</option>--%>
-                <%--<option value="Николай">Николай</option>--%>
-                <%--</select>--%>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            </div>
+            <%--<input class="button" align="right" type="submit" value="Сохранить"/>--%>
+
+        </fieldset>
+    </form>
     <%--</div>--%>
 
     <%
@@ -187,4 +226,19 @@
 
 
 </body>
+
+<script type="text/javascript">
+    $(function () {
+        $('#workDate').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            sideBySide: true,
+            locale: 'ru',
+            defaultDate: moment().add(1, 'days'),
+            format: 'DD.MM.YYYY, HH:mm'
+        });
+
+
+    });
+</script>
+
 </html>

@@ -41,6 +41,19 @@ public class OrderInterfaceImplementation implements OrderInterface {
 
     @Override
     public void updateOrder(Long id, Order order) throws SQLException {
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.update(order);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("ошибка при добавлении заявки " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
 
     }
 

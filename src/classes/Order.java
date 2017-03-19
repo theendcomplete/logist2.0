@@ -9,6 +9,7 @@ public class Order {
     private String target;
     private String comment;
     private Date startDate;
+    private Date workDate;
     private Date endDate;
     private TransportCompany transportCompany;
     private byte[] image;
@@ -244,5 +245,13 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Date getWorkDate() {
+        return workDate;
+    }
+
+    public void setWorkDate(Date workDate) {
+        this.workDate = workDate;
     }
 }

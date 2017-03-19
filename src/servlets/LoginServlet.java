@@ -31,22 +31,20 @@ public class LoginServlet extends HttpServlet {
             out.println("SQL Error " + e);
         }
         if (user != null) {
-            PrintWriter out = response.getWriter();
-            out.println("Найден " + user.getName() + " который " + user.getType());
+//            PrintWriter out = response.getWriter();
+//            out.println("Найден " + user.getName() + " который " + user.getType());
             if (user.getType().equals("user")) {
-//                request.setAttribute("user", user);
                 request.getSession().setAttribute("user", user);
                 request.getRequestDispatcher("/order").forward(request, response);
             } else if (user.getType().equals("logist")) {
-//                request.setAttribute("logist", user);
                 request.getSession().setAttribute("user", user);
                 request.getRequestDispatcher("/logist").forward(request, response);
             }
         }
-        if (request.getAttribute("action").equals("lk")) {
-            PrintWriter out = response.getWriter();
-            out.println("LK");
-        }
+//        if (request.getAttribute("action").equals("lk")) {
+//            PrintWriter out = response.getWriter();
+//            out.println("LK");
+//        }
 
 
     }
@@ -56,22 +54,22 @@ public class LoginServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
 
-        PrintWriter out = response.getWriter();
-        out.println("it works");
+//        PrintWriter out = response.getWriter();
+//        out.println("it works");
 
 //        HttpSession session = request.getSession();
 //        if (session != null) {
 //            session.invalidate();
 //        }
 
-        out.println("order");
-        if (request.getSession().getAttribute("user") != null) {
-
-            request.getRequestDispatcher("/order").forward(request, response);
-        } else if (request.getAttribute("action").equals("lk")) {
-            request.getRequestDispatcher("historyLogin.jsp").forward(request, response);
-        } else
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+//        out.println("order");
+//        if (request.getSession().getAttribute("user") != null) {
+//
+//            request.getRequestDispatcher("/order").forward(request, response);
+//        } else if (request.getAttribute("action").equals("lk")) {
+//            request.getRequestDispatcher("historyLogin.jsp").forward(request, response);
+//        } else
+        request.getRequestDispatcher("login.jsp").forward(request, response);
 
 
     }

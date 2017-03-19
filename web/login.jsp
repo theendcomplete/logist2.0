@@ -52,7 +52,7 @@
         <div class="col-md-4">
             <input id="password" name="password" type="password" placeholder="например, пароль"
                    class="form-control input-md" required="">
-            <span class="help-block">тут - ваш пароль, все так же при помощи клавиатуры</span>
+            <span class="help-block">тут - ваш пароль</span>
         </div>
     </div>
 
