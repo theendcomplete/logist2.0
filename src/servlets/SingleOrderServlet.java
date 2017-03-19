@@ -37,7 +37,9 @@ public class SingleOrderServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/SingleOrder.jsp").forward(request, response);
 
             } catch (SQLException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
+                request.setAttribute("error", e);
+                request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
             }
         }
 

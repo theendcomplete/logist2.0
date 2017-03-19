@@ -45,7 +45,7 @@
     <%--<p>Список заявок со статусом "new"</p>--%>
 
     <form class="form-horizontal" method="POST" action="${pageContext.request.contextPath}/saveOrder?action=logist">
-        <fieldset>
+        <fieldset class="col-md-12">
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                 <th>Поле</th>
@@ -197,16 +197,16 @@
                     </td>
                 </tr>
                 </tbody>
-            </table>
 
+            </table>
 
             <input type="hidden" name="id" value="<%=order.getOrder_ID()%>">
 
             <div class="form-group">
                 <%--<label class="col-md-4 control-label" for="confirm">Отправить заявку</label>--%>
-                <label class="col-md-4 control-label" for="confirm"></label>
-                <div class="col-md-4">
-                    <button id="confirm" name="confirm" class="btn btn-primary">Сохранить</button>
+                <label class="col-md-3 control-label" for="confirm"></label>
+                <div class="col-md-3">
+                    <button id="confirm" align="center" name="confirm" class="btn btn-primary">Сохранить</button>
                 </div>
             </div>
             <%--<input class="button" align="right" type="submit" value="Сохранить"/>--%>
