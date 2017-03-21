@@ -189,7 +189,7 @@
                                     <option value="3">Владимир Зотов</option>
                                     <option value="2">Евгений Савин</option>
                                     <option value="4">Константин Мациборко</option>
-                                    <option value="6">Николай</option>
+                                    <option value="6">Николай Гусев</option>
                                     <option value="7">Сергей Ходов</option>
                                 </select>
                             </div>
