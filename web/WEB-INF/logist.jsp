@@ -58,10 +58,14 @@
 
 <div class="container">
     <h2>Список заявок</h2>
+
+    <p>Для изменения заявки достаточно кликнуть по ней мышью</p>
     <%--<p>Список заявок со статусом "new"--%>
-    <form class="form-horizontal" method="POST" action="${pageContext.request.contextPath}/saveOrder?action=filter">
-        <fieldset class="col-md-12">
-            <div class="form-group col-md-3">
+    <form class="form-horizontal" method="POST" action="${pageContext.request.contextPath}/logist?action=filter">
+        <%--<div class="container">--%>
+        <fieldset class="col-md-16">
+
+            <div class="form-group col-md-4">
                 <label for="status">Фильтровать по статусу:</label>
                 <select class="form-control" name="status" id="status">
                     <option>В работе</option>
@@ -71,7 +75,7 @@
                 </select>
             </div>
 
-            <div class='col-md-3'>
+            <div class='col-md-4'>
                 <div class="form-group">
                     <label for="driver">По водителю</label>
                     <select class="form-control" name="driver" id="driver">
@@ -82,13 +86,12 @@
                         <option value="4">Константин Мациборко</option>
                         <option value="6">Николай Гусев</option>
                         <option value="7">Сергей Ходов</option>
-
                     </select>
                 </div>
             </div>
 
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label class="col-md-4 control-label" for="startDate">По дате</label>
                 <div class="col-md-12">
                     <%--<div class="container">--%>
@@ -104,9 +107,6 @@
                         </div>
                     </div>
 
-
-                    <%--<label class="col-md-4 control-label" for="endDate"> по </label>--%>
-
                     <div class='col-md-6'>
                         <%--<label class="col-md-4 control-label" for="endDate"></label>--%>
                         <div class="form-group">
@@ -116,18 +116,34 @@
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
                             </div>
+                            <div class="col-md-4">
+                                <%--<button id="confirm" name="confirm" class="btn btn-primary">Фильтровать</button>--%>
+                                <button id="confirm" name="confirm" class="btn btn-primary">Фильтровать</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
+                    </div>
+
+
+                </div>
+                <%--<div class="col-md-6">--%>
+                <%--<button id="confirm" name="confirm" class="btn btn-primary">Фильтровать</button>--%>
                 <%--</div>--%>
+                <%--</div>--%>
+
             </div>
+            <%--<label class="col-md-4 control-label" for="confirm"></label>--%>
+
+            <%--<div class="form-group col-md-4">--%>
+            <%--<label class="col-md-4 control-label" for="confirm"></label>--%>
 
 
         </fieldset>
+        <%--</div>--%>
+
     </form>
     <%--</p>--%>
-    <p>Для изменения заявки достаточно кликнуть по ней мышью</p>
+
     <table class="table table-striped table-bordered table-hover">
         <thead>
         <tr>
@@ -139,7 +155,7 @@
             <th>О грузе</th>
             <th>Комментарий</th>
             <th>Статус</th>
-            <th>Кнопка</th>
+            <th>Водитель</th>
         </tr>
         </thead>
         <tbody>
@@ -198,7 +214,7 @@
             </td>
             <%--Кнопка--%>
             <td>
-                <%=order.getOrder_ID().toString()%>
+                <%=order.getDriver().getName()%>
             </td>
         </tr>
 

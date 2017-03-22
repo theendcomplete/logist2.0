@@ -31,23 +31,33 @@ public class LogistServlet extends HttpServlet {
 
 
         User logist = new User();
+        if (request.getParameter("action").equals("filter")) {
 
 
-        if (request.getSession().getAttribute("user") != null) {
-            logist = (User) request.getSession().getAttribute("user");
-            if (logist.getType().equals("logist")) {
-//                Collection resultOrders = getOrdersByStatus("new");
-                Collection resultOrders = getOrdersByStatus("Новая");
-                resultOrders.addAll(getOrdersByStatus("В работе"));
-                resultOrders.addAll(getOrdersByStatus("new"));
+            Collection resultOrders = getOrdersByStatus(request.getParameter("status"));
+//            resultOrders.addAll(getOrdersByStatus("В работе"));
+//            resultOrders.addAll(getOrdersByStatus("new"));
 //                request.setAttribute("logist", logist);
-                request.getSession().setAttribute("user", logist);
-                request.setAttribute("orders", resultOrders);
-                request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
-            } else
-                request.getRequestDispatcher("/order").forward(request, response);
-        }
+//            request.getSession().setAttribute("user", logist);
+            request.setAttribute("orders", resultOrders);
+            request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
+        } else {
 
+            if (request.getSession().getAttribute("user") != null) {
+                logist = (User) request.getSession().getAttribute("user");
+                if (logist.getType().equals("logist")) {
+//                Collection resultOrders = getOrdersByStatus("new");
+                    Collection resultOrders = getOrdersByStatus("Новая");
+                    resultOrders.addAll(getOrdersByStatus("В работе"));
+                    resultOrders.addAll(getOrdersByStatus("new"));
+//                request.setAttribute("logist", logist);
+                    request.getSession().setAttribute("user", logist);
+                    request.setAttribute("orders", resultOrders);
+                    request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
+                } else
+                    request.getRequestDispatcher("/order").forward(request, response);
+            }
+        }
 
     }
 
