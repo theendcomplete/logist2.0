@@ -42,12 +42,6 @@
 
 <body>
 
-<%--<legend>--%>
-<%--<H1 class="text-center" style="margin: 30px 30px 30px 30px;">Список заявок</H1>--%>
-<%--</legend>--%>
-<%--todo--%>
-
-<%--http://stackoverflow.com/questions/28295313/display-an-arraylist-on-a-jsp-page--%>
 
 <%
     User logist = new User();
@@ -64,7 +58,75 @@
 
 <div class="container">
     <h2>Список заявок</h2>
-    <p>Список заявок со статусом "new"</p>
+    <%--<p>Список заявок со статусом "new"--%>
+    <form class="form-horizontal" method="POST" action="${pageContext.request.contextPath}/saveOrder?action=filter">
+        <fieldset class="col-md-12">
+            <div class="form-group col-md-3">
+                <label for="status">Фильтровать по статусу:</label>
+                <select class="form-control" name="status" id="status">
+                    <option>В работе</option>
+                    <option>Готово</option>
+                    <option>Новая</option>
+                    <option>Отменена</option>
+                </select>
+            </div>
+
+            <div class='col-md-3'>
+                <div class="form-group">
+                    <label for="driver">По водителю</label>
+                    <select class="form-control" name="driver" id="driver">
+                        <option value="5">Любой\Не назначен</option>
+                        <option value="1">Андрей Шишкин</option>
+                        <option value="3">Владимир Зотов</option>
+                        <option value="2">Евгений Савин</option>
+                        <option value="4">Константин Мациборко</option>
+                        <option value="6">Николай Гусев</option>
+                        <option value="7">Сергей Ходов</option>
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label" for="startDate">По дате</label>
+                <div class="col-md-12">
+                    <%--<div class="container">--%>
+                    <%--<label class="col-md-4 control-label" for="startDate"> с </label>--%>
+                    <div class='col-md-6'>
+                        <div class="form-group">
+                            <div class='input-group date' name='startDate' id='startDate' required="true">
+                                <input type='text' class="form-control" name='startDate'/>
+                                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <%--<label class="col-md-4 control-label" for="endDate"> по </label>--%>
+
+                    <div class='col-md-6'>
+                        <%--<label class="col-md-4 control-label" for="endDate"></label>--%>
+                        <div class="form-group">
+                            <div class='input-group date' name='endDate' id='endDate' required="true">
+                                <input type='text' class="form-control" name='endDate'/>
+                                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <%--</div>--%>
+            </div>
+
+
+        </fieldset>
+    </form>
+    <%--</p>--%>
     <p>Для изменения заявки достаточно кликнуть по ней мышью</p>
     <table class="table table-striped table-bordered table-hover">
         <thead>
@@ -108,7 +170,7 @@
             </td>
             <%--Заказал--%>
             <td>
-                <%--<%=order.getUser().toString()%>--%>
+                <%=order.getUser().getName().toString()%>
             </td>
             <%--Адрес--%>
             <td>
@@ -154,6 +216,30 @@
 
 
 </body>
+<script type="text/javascript">
+    $(function () {
+        $('#startDate').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            sideBySide: true,
+            locale: 'ru',
+            defaultDate: moment().add(1, 'days'),
+            format: 'DD.MM.YYYY, HH:mm'
+        });
+        $('#endDate').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            sideBySide: true,
+            locale: 'ru',
+            defaultDate: moment().add(2, 'days'),
+            format: 'DD.MM.YYYY, HH:mm'
+        });
+        $("#startDate").on("dp.change", function (e) {
+            $('#endDate').data("DateTimePicker").minDate(e.date);
 
+        });
+        $("#endDate").on("dp.change", function (e) {
+            $('#startDate').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
 
 </html>

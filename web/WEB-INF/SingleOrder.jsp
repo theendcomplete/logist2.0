@@ -48,9 +48,9 @@
         <fieldset class="col-md-12">
             <table class="table table-striped table-bordered table-hover">
                 <thead>
-                <th>Поле</th>
-                <th>В заявке</th>
-                <th>Изменить на</th>
+                <th class='col-md-3'>Поле</th>
+                <th class='col-md-3'>В заявке</th>
+                <th class='col-md-3'>Изменить на</th>
 
                 </thead>
                 <tbody>
@@ -191,6 +191,7 @@
                                     <option value="4">Константин Мациборко</option>
                                     <option value="6">Николай Гусев</option>
                                     <option value="7">Сергей Ходов</option>
+                                    <option value="5">Не назначен</option>
                                 </select>
                             </div>
                         </div>
@@ -219,7 +220,7 @@
         }
     %>
 
-    <%=order.getStartDate().toString()%>
+    <%--<%=order.getStartDate().toString()%>--%>
 
 
 </div> <!-- /container -->

@@ -39,17 +39,11 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("/logist").forward(request, response);
             }
         }
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-
-
         request.getRequestDispatcher("login.jsp").forward(request, response);
-
-
     }
 }
