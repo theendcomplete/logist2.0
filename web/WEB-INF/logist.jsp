@@ -238,14 +238,14 @@
             useCurrent: false, //Important! See issue #1075
             sideBySide: true,
             locale: 'ru',
-            defaultDate: moment().add(1, 'days'),
+//            defaultDate: moment().add(1, 'days'),
             format: 'DD.MM.YYYY, HH:mm'
         });
         $('#endDate').datetimepicker({
             useCurrent: false, //Important! See issue #1075
             sideBySide: true,
             locale: 'ru',
-            defaultDate: moment().add(2, 'days'),
+//            defaultDate: moment().add(2, 'days'),
             format: 'DD.MM.YYYY, HH:mm'
         });
         $("#startDate").on("dp.change", function (e) {
