@@ -29,6 +29,7 @@ public class OrderInterfaceImplementation implements OrderInterface {
             session.save(order);
             session.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("ошибка при добавлении заявки " + e);
         } finally {
             if (session != null && session.isOpen()) {
@@ -141,7 +142,6 @@ public class OrderInterfaceImplementation implements OrderInterface {
         }
         return orders;
     }
-
 
 
     @Override

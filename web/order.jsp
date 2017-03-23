@@ -97,7 +97,7 @@
                 <label class="col-md-4 control-label" for="name">Кто заказал</label>
                 <div class="col-md-4">
                     <input id="name" name="name" type="text" placeholder="Ваше имя" class="form-control input-md"
-                           required="true" value="<%=user.getName()%>">
+                           required="true" maxlength="255" value="<%=user.getName()%>">
                     <span class="help-block">Вас так зовут</span>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                 <label class="col-md-4 control-label" for="name">Кому отгружать</label>
                 <div class="col-md-4">
                     <input id="whom" name="whom" type="whom" value="<%=user.getName()%>" placeholder="Кому отдать груз"
-                           class="form-control input-md">
+                           class="form-control input-md" maxlength="255">
                     <span class="help-block">Кому отдать?</span>
                 </div>
             </div>
@@ -130,7 +130,7 @@
                 <label class="col-md-4 control-label" for="cargo">Груз</label>
                 <div class="col-md-4">
                     <textarea class="form-control" id="cargo" name="cargo" placeholder="О грузе"
-                              required="true"> </textarea>
+                              required="true" maxlength="255"> </textarea>
                     <span class="help-block">Количество и единицы измерения, у кого забрать, нужно ли что-то дополнительное при перевозке</span>
                 </div>
 
@@ -146,7 +146,7 @@
                     <div class='col-md-3'>
                         <div class="form-group">
                             <div class='input-group date' name='startDate' id='startDate' required="true">
-                                <input type='text' class="form-control" name='startDate'/>
+                                <input type='text' maxlength="255" class="form-control" name='startDate'/>
                                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -160,7 +160,7 @@
                     <div class='col-md-3'>
                         <div class="form-group">
                             <div class='input-group date' name='endDate' id='endDate' required="true">
-                                <input type='text' class="form-control" name='endDate'/>
+                                <input type='text' maxlength="255" class="form-control" name='endDate'/>
                                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -168,31 +168,7 @@
                         </div>
                     </div>
                 </div>
-                <script type="text/javascript">
-                    $(function () {
-                        $('#startDate').datetimepicker({
-                            useCurrent: false, //Important! See issue #1075
-                            sideBySide: true,
-                            locale: 'ru',
-                            defaultDate: moment().add(1, 'days'),
-                            format: 'DD.MM.YYYY, HH:mm'
-                        });
-                        $('#endDate').datetimepicker({
-                            useCurrent: false, //Important! See issue #1075
-                            sideBySide: true,
-                            locale: 'ru',
-                            defaultDate: moment().add(2, 'days'),
-                            format: 'DD.MM.YYYY, HH:mm'
-                        });
-                        $("#startDate").on("dp.change", function (e) {
-                            $('#endDate').data("DateTimePicker").minDate(e.date);
 
-                        });
-                        $("#endDate").on("dp.change", function (e) {
-                            $('#startDate').data("DateTimePicker").maxDate(e.date);
-                        });
-                    });
-                </script>
 
                 <%--</div>--%>
             </div>
@@ -207,7 +183,7 @@
                 <label class="col-md-4 control-label" for="sum">Сумма водителю</label>
                 <div class="col-md-4">
                     <input id="sum" name="sum" type="text" placeholder="1 000 рублей"
-                           class="form-control input-md">
+                           class="form-control input-md" maxlength="255">
                     <span class="help-block">Сумма к выдаче водителю (на отправку товара, парковку и т.д.)</span>
                 </div>
             </div>
@@ -217,7 +193,7 @@
                 <label class="col-md-4 control-label" for="address">Адрес</label>
                 <div class="col-md-4">
                     <textarea class="form-control" id="address" name="address" placeholder="Куда ехать?"
-                              required="true"> </textarea>
+                              required="true" maxlength="255"> </textarea>
                     <span class="help-block">В случае отправки транспортной - "Куда отправлять"</span>
                 </div>
             </div>
@@ -268,7 +244,7 @@
                 <div class="col-md-4">
                     <input id="contact_name" name="contact_name" type="text"
                            placeholder="Введите имя контактного лица"
-                           class="form-control input-md">
+                           class="form-control input-md" maxlength="255">
                     <span class="help-block">Кому звонить, если что?</span>
                 </div>
             </div>
@@ -278,7 +254,7 @@
                 <label class="col-md-4 control-label" for="contact_phone">Контактный телефон</label>
                 <div class="col-md-4">
                     <input id="contact_phone" name="contact_phone" type="text" placeholder="+7(888) 123 45 67"
-                           class="form-control input-md">
+                           class="form-control input-md" maxlength="255">
                     <span class="help-block">Куда звонить, если что?</span>
                 </div>
             </div>
@@ -287,7 +263,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="comment" required="true">Комментарий</label>
                 <div class="col-md-4">
-                    <textarea class="form-control" id="comment" name="comment"></textarea>
+                    <textarea class="form-control" id="comment" name="comment" maxlength="255"></textarea>
                     <span class="help-block">Давным-давно, в далёкой-далёкой галактике....</span>
                 </div>
             </div>
@@ -311,5 +287,31 @@
 </div>
 
 </body>
+
+<script type="text/javascript">
+    $(function () {
+        $('#startDate').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            sideBySide: true,
+            locale: 'ru',
+            defaultDate: moment().add(1, 'days'),
+            format: 'DD.MM.YYYY, HH:mm'
+        });
+        $('#endDate').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            sideBySide: true,
+            locale: 'ru',
+            defaultDate: moment().add(2, 'days'),
+            format: 'DD.MM.YYYY, HH:mm'
+        });
+        $("#startDate").on("dp.change", function (e) {
+            $('#endDate').data("DateTimePicker").minDate(e.date);
+
+        });
+        $("#endDate").on("dp.change", function (e) {
+            $('#startDate').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
 
 </html>

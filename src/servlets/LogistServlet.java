@@ -47,12 +47,9 @@ public class LogistServlet extends HttpServlet {
                         request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
                     }
                 } else {
-//                Collection resultOrders = getOrdersByStatus("new");
                     Collection resultOrders = getOrdersByStatus("Новая");
                     resultOrders.addAll(getOrdersByStatus("В работе"));
                     resultOrders.addAll(getOrdersByStatus("new"));
-//                request.setAttribute("logist", logist);
-                    request.getSession().setAttribute("user", logist);
                     request.setAttribute("orders", resultOrders);
                     request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
                 }
@@ -66,11 +63,8 @@ public class LogistServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-
-
         PrintWriter out = response.getWriter();
         out.println("it works");
-
         out.println("logist");
 //        User logist = new User();
         if (request.getSession().getAttribute("user") != null) {

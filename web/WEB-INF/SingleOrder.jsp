@@ -148,6 +148,18 @@
                 </tr>
                 <tr>
                     <td class="row alert-success">
+                        Контактное лицо
+                    </td>
+                    <td>
+                        <%=order.getContact().getName()%> <br>
+                        <%=order.getContact().getPhone()%>
+                    </td>
+                    <td>
+                        <%--<%=order.getOrder_ID().toString()%>--%>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row alert-success">
                         Сумма
                     </td>
                     <td>
