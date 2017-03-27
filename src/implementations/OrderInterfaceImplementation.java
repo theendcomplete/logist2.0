@@ -58,6 +58,43 @@ public class OrderInterfaceImplementation implements OrderInterface {
 
     }
 
+
+    @Override
+    public Collection filterOrders(Driver driver, String startDate, String endDate, String status) throws SQLException {
+        Session session = null;
+        List orders = new ArrayList<Order>();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Criteria orderCriteria = session.createCriteria(Order.class);
+
+            orderCriteria.add(Restrictions.eq("status", status));
+            if (driver.getDriver_ID() != 5L) {
+                orderCriteria.add(Restrictions.eq("driver", driver));
+            }
+            if (!status.equals("Любой")) {
+                orderCriteria.add(Restrictions.eq("status", status));
+            }
+            if (!startDate.equals("Любой")) {
+                orderCriteria.add(Restrictions.eq("startDate", startDate));
+            }
+            if (!endDate.equals("Любой")) {
+                orderCriteria.add(Restrictions.eq("endDate", endDate));
+            }
+            orders = session.createCriteria(Order.class).list();
+            orders = orderCriteria.list();
+
+        } catch (Exception e) {
+            System.out.println("ошибка при поиске пользователя по логину и паролю  " + e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return orders;
+    }
+
+
     @Override
     public Order getOrderById(Long id) throws SQLException {
         Session session = null;

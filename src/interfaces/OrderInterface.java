@@ -1,6 +1,7 @@
 package interfaces;
 
 
+import classes.Driver;
 import classes.Order;
 import classes.User;
 
@@ -12,6 +13,8 @@ public interface OrderInterface {
     void addOrder(Order order) throws SQLException;
 
     void updateOrder(Long id, Order order) throws SQLException;
+
+    Collection filterOrders(Driver driver, String startDate, String endDate, String status) throws SQLException;
 
     Order getOrderById(Long id) throws SQLException;
 

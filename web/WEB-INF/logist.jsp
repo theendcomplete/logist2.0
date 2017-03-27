@@ -68,6 +68,7 @@
             <div class="form-group col-md-4">
                 <label for="status">Фильтровать по статусу:</label>
                 <select class="form-control" name="status" id="status">
+                    <option>Любой</option>
                     <option>В работе</option>
                     <option>Готово</option>
                     <option>Новая</option>

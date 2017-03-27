@@ -16,7 +16,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"/>
 
     <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>--%>
-    <script src="/resources/js/moment.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/moment.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -83,7 +83,7 @@
 <%--<div class="container-narrow">--%>
 <div class="container theme-showcase" role="main">
 
-    <form class="form-horizontal" method="POST" action="/saveOrder">
+    <form class="form-horizontal" method="POST" action="${pageContext.request.contextPath}/saveOrder">
         <fieldset>
 
             <!-- Form Name -->
@@ -169,6 +169,31 @@
                     </div>
                 </div>
 
+                <script type="text/javascript">
+                    $(function () {
+                        $('#startDate').datetimepicker({
+                            useCurrent: false, //Important! See issue #1075
+                            sideBySide: true,
+                            locale: 'ru',
+                            defaultDate: moment().add(1, 'days'),
+                            format: 'DD.MM.YYYY, HH:mm'
+                        });
+                        $('#endDate').datetimepicker({
+                            useCurrent: false, //Important! See issue #1075
+                            sideBySide: true,
+                            locale: 'ru',
+                            defaultDate: moment().add(2, 'days'),
+                            format: 'DD.MM.YYYY, HH:mm'
+                        });
+                        $("#startDate").on("dp.change", function (e) {
+                            $('#endDate').data("DateTimePicker").minDate(e.date);
+
+                        });
+                        $("#endDate").on("dp.change", function (e) {
+                            $('#startDate').data("DateTimePicker").maxDate(e.date);
+                        });
+                    });
+                </script>
 
                 <%--</div>--%>
             </div>
@@ -288,30 +313,5 @@
 
 </body>
 
-<script type="text/javascript">
-    $(function () {
-        $('#startDate').datetimepicker({
-            useCurrent: false, //Important! See issue #1075
-            sideBySide: true,
-            locale: 'ru',
-            defaultDate: moment().add(1, 'days'),
-            format: 'DD.MM.YYYY, HH:mm'
-        });
-        $('#endDate').datetimepicker({
-            useCurrent: false, //Important! See issue #1075
-            sideBySide: true,
-            locale: 'ru',
-            defaultDate: moment().add(2, 'days'),
-            format: 'DD.MM.YYYY, HH:mm'
-        });
-        $("#startDate").on("dp.change", function (e) {
-            $('#endDate').data("DateTimePicker").minDate(e.date);
-
-        });
-        $("#endDate").on("dp.change", function (e) {
-            $('#startDate').data("DateTimePicker").maxDate(e.date);
-        });
-    });
-</script>
 
 </html>
