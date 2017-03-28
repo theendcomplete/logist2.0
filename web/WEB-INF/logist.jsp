@@ -168,16 +168,16 @@
                 Long orderId = order.getOrder_ID();
         %>
 
-        <% if (order.getStatus().equals("delegated")) {
+        <% if (order.getStatus().equals("В работе")) {
         %>
-        <tr class='clickable-row success'
+        <tr class='clickable-row' bgcolor="red"
             data-href="${pageContext.request.contextPath}/single_order?order=<%=orderId.toString()%>"
         >
                 <%
                 }
                 else {
             %>
-        <tr class='clickable-row'
+        <tr class='clickable-row' bgcolor="white"
             data-href="${pageContext.request.contextPath}/single_order?order=<%=orderId.toString()%>"
         ><%
             }
@@ -204,7 +204,13 @@
             </td>
             <%--Поедет--%>
             <td>
-                <%=order.getWorkDate().toString()%>
+                <%
+                    String wd = "Не назначено";
+                    if (order.getWorkDate() != null) {
+                        wd = order.getWorkDate().toString();
+                    }
+                %>
+                <%=wd%>
             </td>
             <%--О грузе--%>
             <td>
