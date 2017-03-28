@@ -145,7 +145,7 @@
     </form>
     <%--</p>--%>
 
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-bordered table-hover">
         <thead>
         <tr>
             <th>id</th>
@@ -175,12 +175,20 @@
         >
                 <%
                 }
-                else {
+                if (order.getStatus().equals("Готово")) {
+            %>
+        <tr class='clickable-row' bgcolor="green"
+            data-href="${pageContext.request.contextPath}/single_order?order=<%=orderId.toString()%>"
+        ><%
+            }
+
+            if (order.getStatus().equals("Новая")) {
             %>
         <tr class='clickable-row' bgcolor="white"
             data-href="${pageContext.request.contextPath}/single_order?order=<%=orderId.toString()%>"
         ><%
             }
+
         %>
             <%--id--%>
             <td>
