@@ -13,6 +13,7 @@ import org.hibernate.criterion.Restrictions;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -60,25 +61,25 @@ public class OrderInterfaceImplementation implements OrderInterface {
 
 
     @Override
-    public Collection filterOrders(Driver driver, String startDate, String endDate, String status) throws SQLException {
+    public Collection filterOrders(Driver driver, Date startDate, Date endDate, String status) throws SQLException {
         Session session = null;
         List orders = new ArrayList<Order>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Criteria orderCriteria = session.createCriteria(Order.class);
 
-            orderCriteria.add(Restrictions.eq("status", status));
+//            orderCriteria.add(Restrictions.eq("status", status));
             if (driver.getDriver_ID() != 5L) {
-                orderCriteria.add(Restrictions.eq("driver", driver));
+                orderCriteria.add(Restrictions.eq("Driver", driver));
             }
             if (!status.equals("Любой")) {
                 orderCriteria.add(Restrictions.eq("status", status));
             }
-            if (!startDate.equals("Любой")) {
-                orderCriteria.add(Restrictions.eq("startDate", startDate));
+            if (startDate != null) {
+                orderCriteria.add(Restrictions.ge("workDate", startDate));
             }
-            if (!endDate.equals("Любой")) {
-                orderCriteria.add(Restrictions.eq("endDate", endDate));
+            if (endDate != null) {
+                orderCriteria.add(Restrictions.lt("workDate", endDate));
             }
             orders = session.createCriteria(Order.class).list();
             orders = orderCriteria.list();

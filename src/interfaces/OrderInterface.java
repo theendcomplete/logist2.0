@@ -7,6 +7,7 @@ import classes.User;
 
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Date;
 
 public interface OrderInterface {
 
@@ -14,7 +15,8 @@ public interface OrderInterface {
 
     void updateOrder(Long id, Order order) throws SQLException;
 
-    Collection filterOrders(Driver driver, String startDate, String endDate, String status) throws SQLException;
+
+    Collection filterOrders(Driver driver, Date startDate, Date endDate, String status) throws SQLException;
 
     Order getOrderById(Long id) throws SQLException;
 

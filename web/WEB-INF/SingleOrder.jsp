@@ -68,13 +68,14 @@
                 </tr>
                 <tr>
                     <td class="row alert-success">
-                        Адрес
+                        Адрес/Коммент
                     </td>
                     <td class="row">
                         <%=order.getAddress()%>
                     </td>
                     <td class="row">
-                        <%--<%=order.getOrder_ID().toString()%>--%>
+                        <span style="font-weight: bold;">Комментарий: </span><br>
+                        <%=order.getComment()%>
                     </td>
                 </tr>
                 <tr>
@@ -102,7 +103,9 @@
                         <div class='col-md-9'>
                             <div class="form-group">
                                 <div class='input-group date ' name='workDate' id='workDate' required="true">
-                                    <input type='text' class="form-control" name='workDate'/>
+                                    <input type='text' class="form-control" name='workDate'
+                                    <%--value="<%=new SimpleDateFormat("dd.MM.yyyy, HH:mm").parse(order.getWorkDate().toString())%>"/>--%>
+                                    />
                                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -140,7 +143,7 @@
                         Кто заказал
                     </td>
                     <td>
-                        <%=order.getUser().getName().toString()%>
+                        <%=order.getUser().getName()%>
                     </td>
                     <td>
                         <%--<%=order.getOrder_ID().toString()%>--%>
@@ -229,6 +232,12 @@
     <%--</div>--%>
 
     <%
+            try {
+            } catch (Exception e) {
+            }
+            try {
+            } catch (Exception e) {
+            }
         }
     %>
 
@@ -246,12 +255,10 @@
             useCurrent: false, //Important! See issue #1075
             sideBySide: true,
             locale: 'ru',
-            defaultDate: moment().add(1, 'days'),
+//            defaultDate: moment().add(1, 'days'),
+            defaultDate: "<%=(order.getWorkDate().toString())%>",
             format: 'DD.MM.YYYY, HH:mm'
         });
-
-
     });
 </script>
-
 </html>

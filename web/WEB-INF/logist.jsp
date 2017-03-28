@@ -153,6 +153,7 @@
             <th>Адрес</th>
             <th>С</th>
             <th>По</th>
+            <th>Поедет</th>
             <th>О грузе</th>
             <th>Комментарий</th>
             <th>Статус</th>
@@ -187,7 +188,7 @@
             </td>
             <%--Заказал--%>
             <td>
-                <%=order.getUser().getName().toString()%>
+                <%=order.getUser().getName()%>
             </td>
             <%--Адрес--%>
             <td>
@@ -200,6 +201,10 @@
             <%--По--%>
             <td>
                 <%=order.getEndDate().toString()%>
+            </td>
+            <%--Поедет--%>
+            <td>
+                <%=order.getWorkDate().toString()%>
             </td>
             <%--О грузе--%>
             <td>

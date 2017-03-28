@@ -132,6 +132,8 @@ public class SaveOrderServlet extends HttpServlet {
                 driver = driverInterfaceImplementation.getDriverById(Long.valueOf(request.getParameter("driver")));
                 order.setDriver(driver);
                 orderInterfaceImplementation.updateOrder(order.getOrder_ID(), order);
+//                request.getRequestDispatcher("/WEB-INF/success.html").forward(request, response);
+                request.getRequestDispatcher("/logist").forward(request, response);
             } catch (SQLException e) {
 //                e.printStackTrace();
                 request.setAttribute("error", e);
@@ -139,7 +141,7 @@ public class SaveOrderServlet extends HttpServlet {
             }
 
 //            request.getRequestDispatcher("/WEB-INF/success.html").forward(request, response);
-            request.getRequestDispatcher("/logist").forward(request, response);
+//            request.getRequestDispatcher("/logist").forward(request, response);
 //              order.setDriver();
 
         }

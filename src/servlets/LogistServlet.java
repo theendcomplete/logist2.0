@@ -1,7 +1,9 @@
 package servlets;
 
+import classes.Driver;
 import classes.Order;
 import classes.User;
+import implementations.DriverInterfaceImplementation;
 import implementations.OrderInterfaceImplementation;
 
 import javax.servlet.ServletException;
@@ -12,7 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by theendcomplete on 19.01.2017.
@@ -25,39 +31,97 @@ public class LogistServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         PrintWriter out = response.getWriter();
-        out.println("it works");
+        out.println("Недостаточно прав доступа");
 
         out.println("logistPOST");
 
 
         User logist = new User();
-
+        Collection resultOrders;
 
         if (request.getSession().getAttribute("user") != null) {
             logist = (User) request.getSession().getAttribute("user");
             if (logist.getType().equals("logist")) {
                 if (request.getParameter("action") != null) {
-                    if (request.getParameter("action").equals("filter")) {
-                        Collection resultOrders = getOrdersByStatus(request.getParameter("status"));
+
+                    switch (request.getParameter("action")) {
+                        case ("filter"):
+                            Driver driver = new Driver();
+
+                            DriverInterfaceImplementation driverInterfaceImplementation = new DriverInterfaceImplementation();
+                            try {
+                                driver = driverInterfaceImplementation.getDriverById(Long.valueOf(request.getParameter("driver")));
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            Date startDate = convertStringToDate(request.getParameter("startDate"));
+                            Date endDate = convertStringToDate(request.getParameter("endDate"));
+                            String status = request.getParameter("status");
+                            resultOrders = filterOrders(driver, startDate, endDate, status);
 //            resultOrders.addAll(getOrdersByStatus("В работе"));
 //            resultOrders.addAll(getOrdersByStatus("new"));
 //                request.setAttribute("logist", logist);
 //            request.getSession().setAttribute("user", logist);
-                        request.setAttribute("orders", resultOrders);
-                        request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
+                            request.setAttribute("orders", resultOrders);
+                            request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
+                            break;
+                        case ("logist"):
+                            resultOrders = getOrdersByStatus("Новая");
+                            resultOrders.addAll(getOrdersByStatus("В работе"));
+                            request.setAttribute("orders", resultOrders);
+                            request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
+                            break;
+                        default:
                     }
+//                    if (request.getParameter("action").equals("filter")) {
+////                        Collection resultOrders = getOrdersByStatus(request.getParameter("status"));
+//                        Driver driver = new Driver();
+//
+//                        DriverInterfaceImplementation driverInterfaceImplementation = new DriverInterfaceImplementation();
+//                        try {
+//                            driver = driverInterfaceImplementation.getDriverById(Long.valueOf(request.getParameter("driver")));
+//                        } catch (SQLException e) {
+//                            e.printStackTrace();
+//                        }
+//                        Date startDate = convertStringToDate(request.getParameter("startDate"));
+//                        Date endDate = convertStringToDate(request.getParameter("endDate"));
+//                        String status = request.getParameter("status");
+//
+//                        Collection resultOrders = filterOrders(driver, startDate, endDate, status);
+//
+////            resultOrders.addAll(getOrdersByStatus("В работе"));
+////            resultOrders.addAll(getOrdersByStatus("new"));
+////                request.setAttribute("logist", logist);
+////            request.getSession().setAttribute("user", logist);
+//                        request.setAttribute("orders", resultOrders);
+//                        request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
+////                    }
+//                } else if (request.getParameter("action").equals("logist")) {
+//                    Collection resultOrders = getOrdersByStatus("Новая");
+//                    resultOrders.addAll(getOrdersByStatus("В работе"));
+////                    resultOrders.addAll(getOrdersByStatus("new"));
+//                    request.setAttribute("orders", resultOrders);
+//                    request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
+//
+//                } else {
+//                    Collection resultOrders = getOrdersByStatus("Новая");
+//                    resultOrders.addAll(getOrdersByStatus("В работе"));
+////                    resultOrders.addAll(getOrdersByStatus("new"));
+//                    request.setAttribute("orders", resultOrders);
+//                    request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
+//                }
+//
+//            } else
+//                request.getRequestDispatcher("/order").forward(request, response);
                 } else {
-                    Collection resultOrders = getOrdersByStatus("Новая");
+                    resultOrders = getOrdersByStatus("Новая");
                     resultOrders.addAll(getOrdersByStatus("В работе"));
 //                    resultOrders.addAll(getOrdersByStatus("new"));
                     request.setAttribute("orders", resultOrders);
                     request.getRequestDispatcher("/WEB-INF/logist.jsp").forward(request, response);
                 }
-            } else
-                request.getRequestDispatcher("/order").forward(request, response);
+            }
         }
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -96,6 +160,30 @@ public class LogistServlet extends HttpServlet {
             e.printStackTrace();
         }
         return null;
+    }
 
+    private Collection filterOrders(Driver driver, Date startDate, Date endDate, String status) {
+
+        OrderInterfaceImplementation orderInterfaceImplementation = new OrderInterfaceImplementation();
+        try {
+            return orderInterfaceImplementation.filterOrders(driver, startDate, endDate, status);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private Date convertStringToDate(String string) {
+        Date date = null;
+        Locale russianLocale = new Locale.Builder().setLanguage("ru").setRegion("RU").build();
+        if (string != null) {
+            try {
+                date = new SimpleDateFormat("dd.MM.yyyy, HH:mm", russianLocale).parse(string);
+                return date;
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return date;
     }
 }
