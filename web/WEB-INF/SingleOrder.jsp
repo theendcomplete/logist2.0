@@ -1,4 +1,5 @@
 <%@ page import="classes.Order" %>
+<%@ page import="java.util.Date" %>
 <%--
   Created by IntelliJ IDEA.
   User: theendcomplete
@@ -86,7 +87,14 @@
                         <%=order.getTarget()%>
                     </td>
                     <td>
-                        <%--<%=order.getOrder_ID().toString()%>--%>
+                        <span style="font-weight: bold;">Назначенная дата: </span>
+                        <%
+                            String wd = "Не назначено";
+                            if (order.getWorkDate() != null) {
+                                wd = order.getWorkDate().toString();
+                            }
+                        %>
+                        <%=wd%>
                     </td>
                 </tr>
                 <tr>
@@ -95,9 +103,12 @@
                     </td>
                     <td>
                         <%=order.getStartDate().toString()%>/
-                        <%--</td>--%>
-                        <%--<td>--%>
                         <%=order.getEndDate().toString()%>
+                        <% if (order.getWorkDate() == null) {
+                            order.setWorkDate(new Date());
+                        }%>
+
+
                     </td>
                     <td class="row">
                         <div class='col-md-9'>
@@ -249,14 +260,15 @@
 
 </body>
 
+
 <script type="text/javascript">
     $(function () {
         $('#workDate').datetimepicker({
             useCurrent: false, //Important! See issue #1075
             sideBySide: true,
             locale: 'ru',
-//            defaultDate: moment().add(1, 'days'),
-            defaultDate: "<%=(order.getWorkDate().toString())%>",
+            defaultDate: moment().add(1, 'days'),
+            <%--defaultDate: "<%=(order.getWorkDate().toString())%>",--%>
             format: 'DD.MM.YYYY, HH:mm'
         });
     });

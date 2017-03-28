@@ -56,7 +56,6 @@ public class OrderInterfaceImplementation implements OrderInterface {
                 session.close();
             }
         }
-
     }
 
 
@@ -67,8 +66,6 @@ public class OrderInterfaceImplementation implements OrderInterface {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Criteria orderCriteria = session.createCriteria(Order.class);
-
-//            orderCriteria.add(Restrictions.eq("status", status));
             if (driver.getDriver_ID() != 5L) {
                 orderCriteria.add(Restrictions.eq("Driver", driver));
             }
