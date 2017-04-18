@@ -18,7 +18,6 @@ public class Order {
     private String status;
     private String whom;
     private String sum;
-
     private String dover;
     private String parking;
     private String heat;
@@ -175,9 +174,7 @@ public class Order {
     public void setDover(String dover) {
 
 
-        if (this.dover == null) {
-            dover = "";
-        }
+
 
         this.dover = dover;
     }
@@ -212,16 +209,14 @@ public class Order {
     }
 
     public String getWepay() {
-        return wepay;
-    }
-
-    public void setWepay(String wepay) {
-
 
         if (this.wepay == null) {
             wepay = "";
         }
+        return wepay;
+    }
 
+    public void setWepay(String wepay) {
         this.wepay = wepay;
     }
 

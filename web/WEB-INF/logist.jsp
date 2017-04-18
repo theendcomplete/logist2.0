@@ -83,7 +83,7 @@
                         <option value="5">Любой\Не назначен</option>
                         <option value="1">Андрей Шишкин</option>
                         <option value="3">Владимир Зотов</option>
-                        <option value="2">Евгений Савин</option>
+                        <option value="2">Алексей Ильин</option>
                         <option value="4">Константин Мациборко</option>
                         <option value="6">Николай Гусев</option>
                         <option value="7">Сергей Ходов</option>

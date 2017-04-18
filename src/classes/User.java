@@ -80,7 +80,6 @@ public class User {
         this.type = type;
     }
 
-
     public Collection<Order> getOrders() {
         return orders;
     }
