@@ -8,13 +8,11 @@ import factories.HibernateUtil;
 import interfaces.OrderInterface;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by theendcomplete on 19.01.2017.
@@ -164,8 +162,33 @@ public class OrderInterfaceImplementation implements OrderInterface {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Criteria orderCriteria = session.createCriteria(Order.class);
+            Date dt = new Date();
+            Calendar c = Calendar.getInstance();
+            c.setTime(dt);
+            c.add(Calendar.DATE, -30);
+            dt = c.getTime();
 
-            orderCriteria.add(Restrictions.eq("user", user));
+            Date ds = new Date();
+            c.setTime(ds);
+            c.add(Calendar.DATE, 30);
+            ds = c.getTime();
+
+            Criterion conj = Restrictions.conjunction()
+                    .add(Restrictions.eq("user", user));
+//                    .add((Restrictions.eq("status", "Новая")))
+//                    .add(Restrictions.eq("status", "В работе"));
+
+            Criterion disj = Restrictions.disjunction()
+                    .add(Restrictions.between("startDate", dt, ds));
+//                    .add(Restrictions.eq("user", user))
+//                    .add((Restrictions.eq("status", "Новая")))
+//                    .add(Restrictions.eq("status", "В работе"));
+//            orderCriteria.add(conj).add(disj);
+
+//            orderCriteria.add(Restrictions.eq("user", user));
+//            orderCriteria.add(Restrictions.eq("status", "Новая"));
+//            orderCriteria.add(Restrictions.eq("status", "В работе"));
+            orderCriteria.add(conj).add(disj);
             orders = session.createCriteria(Order.class).list();
             orders = orderCriteria.list();
         } catch (Exception e) {

@@ -77,6 +77,7 @@ public class MyServlet extends HttpServlet {
             return orderInterfaceImplementation.getOrdersByUser(user);
         } catch (SQLException e) {
             e.printStackTrace();
+
         }
         return null;
 

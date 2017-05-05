@@ -68,6 +68,7 @@ public class UserInterfaceImplementation implements UserInterface {
             user = (User) userCriteria.uniqueResult();
         } catch (Exception e) {
             System.out.println("ошибка при поиске пользователя по имени  " + e);
+            throw new SQLException("ошибка при поиске пользователя по имени  ");
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();

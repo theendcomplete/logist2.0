@@ -69,6 +69,7 @@ public class SaveOrderServlet extends HttpServlet {
                     user = userInterfaceImplementation.getUserByName(user.getName());
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
                 }
 
                 if (user == null) {
@@ -80,6 +81,7 @@ public class SaveOrderServlet extends HttpServlet {
                         userInterfaceImplementation.addUser(user);
                     } catch (SQLException e) {
                         e.printStackTrace();
+                        request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
                     }
                 }
                 order.setUser(user);
@@ -92,6 +94,7 @@ public class SaveOrderServlet extends HttpServlet {
                 order.setDriver(noOne);
             } catch (SQLException e) {
                 e.printStackTrace();
+                request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
             }
 
 
@@ -108,6 +111,7 @@ public class SaveOrderServlet extends HttpServlet {
                     order.setContact(contact);
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
                 }
             }
 
@@ -118,6 +122,7 @@ public class SaveOrderServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/success.html").forward(request, response);
             } catch (SQLException e) {
                 e.printStackTrace();
+                request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
             }
         }//getparameter("action")
         else {
