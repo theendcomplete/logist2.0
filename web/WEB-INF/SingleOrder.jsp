@@ -168,6 +168,7 @@
                         <%=order.getContact().getPhone()%>
                     </td>
                     <td>
+                        О грузе: <%=order.getCargo()%>
                         <%--<%=order.getOrder_ID().toString()%>--%>
                     </td>
                 </tr>
@@ -215,7 +216,7 @@
                                     <option value="2">Алексей Ильин</option>
                                     <option value="4">Константин Мациборко</option>
                                     <option value="6">Николай Гусев</option>
-                                    <option value="7">Сергей Ходов</option>
+                                    <option value="7">Игорь Болотин</option>
                                     <option value="5">Не назначен</option>
                                 </select>
                             </div>

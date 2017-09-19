@@ -37,5 +37,6 @@
     <orderEntry type="library" exported="" name="bootstrap" level="application" />
     <orderEntry type="library" exported="" name="jquery" level="application" />
     <orderEntry type="library" exported="" name="bootstrap-datetimepicker" level="application" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>
